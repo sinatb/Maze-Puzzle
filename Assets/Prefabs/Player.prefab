@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52753b59aa801c840ba0c544e5065070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  _maxspeed: 5
   playerCamera: {fileID: 1372731503352393681}
   lookSpeed: 2
   lookXLimit: 45
@@ -290,8 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8635878b3e177334dbdad6a1a2371953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionPoint: {fileID: 0}
-  _interactionPointRadius: 1
+  _interactionPoint: {fileID: 1060012416344925776}
+  _interactionPointRadius: 0.5
   _interactionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64

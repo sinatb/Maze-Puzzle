@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &25849756 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1060012416344925776, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-  m_PrefabInstance: {fileID: 822525068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &680153881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,6 +339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -395235601190191456, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
+      propertyPath: lookSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5449673746735926735, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -387,18 +386,6 @@ PrefabInstance:
     - target: {fileID: 6122893170750317714, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423388831030611039, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-      propertyPath: _interactionPoint
-      value: 
-      objectReference: {fileID: 25849756}
-    - target: {fileID: 6423388831030611039, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-      propertyPath: _interactionMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423388831030611039, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-      propertyPath: _interactionPointRadius
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
