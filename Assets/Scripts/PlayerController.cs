@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    public Camera playerCamera;
+    private float rotationX;
+    public float lookSpeed = 2.0f;
+    public float lookXLimit = 45.0f;
+    private void Update()
     {
-        
+        playerMovementInput();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void playerMovementInput()
     {
-        
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.forward * (Time.deltaTime * vertical * speed));
+        transform.Translate(Vector3.right * (Time.deltaTime * horizontal * speed));
+        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
 }
