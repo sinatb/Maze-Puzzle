@@ -13,5 +13,12 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colldiers, _interactionMask);   
+        if (_colldiers[0] != null)
+        {
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                _colldiers[0].GetComponent<IInteractable>().Interact(this);
+            }
+        }
     }
 }

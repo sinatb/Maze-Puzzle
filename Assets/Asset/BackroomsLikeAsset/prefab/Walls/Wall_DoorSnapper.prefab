@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1550407177270314640}
   - component: {fileID: -3363248160105115}
   - component: {fileID: 1182635982520348977}
+  - component: {fileID: 2237156258693100363}
   m_Layer: 6
   m_Name: Wall_DoorSnapper
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d116274d803f5049b526d854f13a63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionName: Open Door
 --- !u!64 &1182635982520348977
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +70,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2619086233303812490, guid: 05323b62e9a5c4f43bf94c451c70c99f, type: 3}
+--- !u!95 &2237156258693100363
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534111017405210567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac82556d541426d47a02bbaa76473be7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5438063203071105307
 GameObject:
   m_ObjectHideFlags: 0
