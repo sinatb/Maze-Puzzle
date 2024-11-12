@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward),out _hit, _interactionMask))
         {
-            if (_colldiers[0] != null && _hit.transform.gameObject == _colldiers[0].gameObject)
+            if (_colldiers[0] != null && _hit.transform.gameObject == _colldiers[0].gameObject && _hit.distance <= 2.0f)
             {
                 _isWatchingCollider = true;
             }
