@@ -22,10 +22,12 @@ public class Door : MonoBehaviour, IInteractable
             _animator.Play("door_close", 0, 0.0f);
             _audioSource.PlayOneShot(doorClose);
             _isOpen = false;
+            _interactionName = "Open Door";
        } else {
             _animator.Play("door_open", 0, 0.0f);
             _audioSource.PlayOneShot(doorOpen);
             _isOpen = true;
+            _interactionName = "Close Door";
        }
     }
     public void Interact(PlayerInteraction pi)
