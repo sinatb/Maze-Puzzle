@@ -10,4 +10,16 @@ public class PlayerInventory : MonoBehaviour
     {
         _inventoryItems.Add(i);
     }
+    public bool CheckDependency(List<string> items)
+    {
+        var items_len = items.Count;
+        foreach (var item in _inventoryItems)
+        {
+            if (items.Contains(item.Itemname))
+            {
+                items_len--; 
+            }
+        }
+        return items_len == 0;
+    }
 }
