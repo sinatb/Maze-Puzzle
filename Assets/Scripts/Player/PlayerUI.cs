@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -9,7 +10,19 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private float _alertDisplayTime;
     [SerializeField] private Color _displayColor;
     [SerializeField] private Color _alertColor;
+    [SerializeField] private Slider _sanitySlider;
     private bool _isLocked = false;
+    private PlayerState _state;
+
+    private void Start()
+    {
+        _state = GetComponent<PlayerState>();
+    }
+
+    private void Update()
+    {
+        _sanitySlider.value =( _state.GetSanity()/2000.0f);
+    }
     private IEnumerator alertDisplayDelay()
     {
         yield return new WaitForSeconds(_alertDisplayTime);

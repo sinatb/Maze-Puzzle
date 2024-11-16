@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 6423388831030611039}
   - component: {fileID: 8042741777459633347}
   - component: {fileID: 1670892107152639264}
+  - component: {fileID: 5217890622605762646}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -460,6 +461,24 @@ MonoBehaviour:
   _alertDisplayTime: 1
   _displayColor: {r: 1, g: 1, b: 1, a: 1}
   _alertColor: {r: 0.9245283, g: 0, b: 0.024426587, a: 1}
+--- !u!114 &5217890622605762646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122893170750317714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480576e5cdc162047bc19663b077ebe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Sanity: 2000
+  _BaseLoss: 5
+  _LightPenalty: 0
+  _FlashlightExtra: 3
+  _PuzzleMistakePenalty: -50
+  _PuzzleSolveExtra: 100
 --- !u!1 &7631347126674722463
 GameObject:
   m_ObjectHideFlags: 0
