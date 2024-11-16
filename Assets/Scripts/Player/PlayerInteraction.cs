@@ -8,10 +8,15 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 1.0f;
     [SerializeField] private LayerMask _interactionMask;
-    [SerializeField] private TextMeshProUGUI _tmp;
+    PlayerUI ui;
     private bool _isWatchingCollider = false;
     private RaycastHit _hit;
     private readonly Collider[] _colldiers = new Collider[3];
+    private void Start()
+    {
+        ui = GetComponent<PlayerUI>();
+    }
+
 
     private void Update()
     {
@@ -20,11 +25,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (_isWatchingCollider) 
             {
-                _tmp.text = "Press E to " + _colldiers[0].GetComponent<IInteractable>().InteractionName;
+                ui.SetText("Press E to " + _colldiers[0].GetComponent<IInteractable>().InteractionName);
             }
             else
             {
-                _tmp.text = "";
+                ui.ClearText();
             }
             if (Input.GetKeyUp(KeyCode.E) && _isWatchingCollider)
             {
