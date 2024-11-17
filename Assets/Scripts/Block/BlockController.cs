@@ -14,6 +14,28 @@ public class BlockController : MonoBehaviour
     [SerializeField] private Material _ceillingFogMat;
     [SerializeField] private Material _floorMat;
     [SerializeField] private GameObject _floorCeilling;
+
+    #region Shader
+    private void setMatDark()
+    {
+        List<Material> materials = new List<Material>()
+                {
+                    _floorMat,
+                    _ceillingFogMat
+                };
+        _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);
+    }
+    private void setMatLight()
+    {
+        List<Material> materials = new List<Material>() {
+                    _floorMat,
+                    _ceillingMat
+                };
+        _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);
+    }
+    #endregion
+
+
     private void Start()
     {
         if (_isFogNeighbour)
@@ -22,21 +44,12 @@ public class BlockController : MonoBehaviour
         {
             if (!_isFogBlock)
             {
-                List<Material> materials = new List<Material>() {
-                    _floorMat,
-                    _ceillingMat
-                };
-                _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);                
+                setMatLight();
                 _light.intensity = _maxIntensity;        
             }
             else
             {
-                List<Material> materials = new List<Material>()
-                {
-                    _floorMat,
-                    _ceillingFogMat
-                };
-                _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);
+                setMatDark();
                 _light.intensity = 0.0f;
             }
         }
@@ -44,6 +57,17 @@ public class BlockController : MonoBehaviour
     public void IncPlayerCount()
     {
         _playerCount++;
+        if (_playerCount == 1)
+        {
+           _light.intensity = 0.3f;
+        }else if (_playerCount == 2)
+        {
+            _light.intensity = 0.2f;
+        }else if ( _playerCount == 3)
+        {
+            setMatDark();
+            _light.intensity = 0.0f;
+        }
 
     }
 
