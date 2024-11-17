@@ -9,11 +9,12 @@ public class BlockController : MonoBehaviour
     [SerializeField] private Light _light;
     [SerializeField] private bool _isFogBlock;
     [SerializeField] private bool _isFogNeighbour;
+    [SerializeField] private bool _isFinishingBlock;
     [SerializeField] private Material _ceillingMat;
     [SerializeField] private Material _ceillingFogMat;
     [SerializeField] private Material _floorMat;
     [SerializeField] private GameObject _floorCeilling;
-
+    
     #region Shader
     private void setMatDark()
     {
@@ -71,6 +72,10 @@ public class BlockController : MonoBehaviour
     public bool GetIsFog()
     {
         return _isFogBlock;
+    }
+    public bool GetIsFinishing()
+    {
+        return _isFinishingBlock;
     }
     
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
     [SerializeField] private float _Sanity = 2000.0f;
+    [SerializeField] private Event _gameOverEvent;
+    [SerializeField] private Event _gameWinEvent;
     [SerializeField] private float _Score = 0.0f;
     [SerializeField] private float _BaseLoss = 5.0f;
     [SerializeField] private List<float> _LightPenalty;
@@ -33,7 +35,7 @@ public class PlayerState : MonoBehaviour
     {
         if (_Sanity <= 0.0f)
         {
-            //TODO : Game over Logic
+            _gameOverEvent.Raise();
         }        
     }
 
