@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BlockCollider : MonoBehaviour
 {
-    [SerializeField] private BlockController _bc;
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private BlockController _blockController;
+    private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
-            _bc.IncPlayerCount();
+            _blockController.IncPlayerCount();
         }
+    }
+    public BlockController GetBlockController()
+    {
+        return _blockController;
     }
 }

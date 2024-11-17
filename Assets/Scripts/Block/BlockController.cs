@@ -56,7 +56,7 @@ public class BlockController : MonoBehaviour
            _light.intensity /= 2;
         }else if (_playerCount == 2)
         {
-            _light.intensity /= 2;
+            _light.intensity /= 1.5f;
         }else if ( _playerCount == 3)
         {
             setMatDark();
@@ -64,6 +64,13 @@ public class BlockController : MonoBehaviour
         }
 
     }
-
+    public int GetPlayerCount()
+    {
+        return _playerCount;
+    }
+    public bool GetIsFog()
+    {
+        return _isFogBlock;
+    }
     
 }

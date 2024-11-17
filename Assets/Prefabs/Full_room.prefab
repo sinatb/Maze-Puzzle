@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2704937034351673264}
   m_Layer: 0
   m_Name: EntranceCollider
-  m_TagString: Untagged
+  m_TagString: EntranceCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce66136355123846b9fbedd5308125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bc: {fileID: 4269704560796886655}
+  _blockController: {fileID: 4269704560796886655}
 --- !u!1001 &54006478600301336
 PrefabInstance:
   m_ObjectHideFlags: 0
