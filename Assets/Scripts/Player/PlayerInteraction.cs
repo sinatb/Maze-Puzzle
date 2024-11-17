@@ -11,17 +11,21 @@ public class PlayerInteraction : MonoBehaviour
     PlayerUI ui;
     private bool _isWatchingCollider = false;
     private RaycastHit _hit;
+    private bool _isGameRunning = true;
     private readonly Collider[] _colldiers = new Collider[3];
     private void Start()
     {
         ui = GetComponent<PlayerUI>();
     }
-
-
+    
+    public void GameOver()
+    {
+        _isGameRunning = false;
+    }
     private void Update()
     {
         Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colldiers, _interactionMask);   
-        if (_colldiers[0] != null)
+        if (_colldiers[0] != null && _isGameRunning)
         {
             if (_isWatchingCollider) 
             {

@@ -13,17 +13,22 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private float _FlashlightExtra = 3.0f;
     [SerializeField] private float _PuzzleMistakePenalty = -50.0f;
     [SerializeField] private float _PuzzleSolveExtra = 100.0f;
+    private int _score = 0;
     private PlayerInventory _playerInventory;
     private int _blockCount;
     private bool _isFog;
+    private bool _isGameRunning = true;
     private void updateState() 
     {
-        if (_playerInventory.HasItem("flashlight"))
+        if (_isGameRunning)
         {
-            _Sanity += _FlashlightExtra;
+            if (_playerInventory.HasItem("flashlight"))
+            {
+                _Sanity += _FlashlightExtra;
+            }
+            float lp = _isFog ? _fogPenalty : _LightPenalty[_blockCount];
+                _Sanity -= _BaseLoss + lp;
         }
-        float lp = _isFog ? _fogPenalty : _LightPenalty[_blockCount];
-        _Sanity -= _BaseLoss + lp;
     }
     private void Start()
     {
@@ -33,9 +38,10 @@ public class PlayerState : MonoBehaviour
 
     private void Update()
     {
-        if (_Sanity <= 0.0f)
+        if (_Sanity <= 0.0f && _isGameRunning)
         {
             _gameOverEvent.Raise();
+            _isGameRunning = false;
         }        
     }
 
@@ -43,7 +49,6 @@ public class PlayerState : MonoBehaviour
     {
         if (other.transform.CompareTag("EntranceCollider"))
         {
-            Debug.Log("hi");
             _isFog = other.GetComponent<BlockCollider>().GetBlockController().GetIsFog();
             if (!_isFog)
             {
@@ -53,8 +58,10 @@ public class PlayerState : MonoBehaviour
             } 
         }
     }
-
-
+    public void CalculateWinScore()
+    {
+        _score += 2000;
+    }
     public float GetSanity()
     {
         return _Sanity;

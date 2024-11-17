@@ -11,6 +11,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Color _displayColor;
     [SerializeField] private Color _alertColor;
     [SerializeField] private Slider _sanitySlider;
+    [SerializeField] private GameObject _sanityUI;
+    [SerializeField] private GameObject _gameOverUI;
     private bool _isLocked = false;
     private PlayerState _state;
 
@@ -47,5 +49,11 @@ public class PlayerUI : MonoBehaviour
         _isLocked = true;
         StartCoroutine(alertDisplayDelay());
     }
-
+    public void GameOver()
+    {
+        ClearText();
+        _isLocked = true;
+        _sanityUI.SetActive(false);
+        _gameOverUI.SetActive(true);
+    }
 }

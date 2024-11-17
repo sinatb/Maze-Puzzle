@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     private Rigidbody _rb;
+    private bool _isGameRunning = true;
+
+    public void GameOver()
+    {
+        _isGameRunning = false;
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -24,21 +30,25 @@ public class PlayerController : MonoBehaviour
     }
     private void playerMovementInput()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-        var movement = new Vector3(
-            Time.deltaTime * horizontal * _maxspeed,
-            0,
-            Time.deltaTime * vertical * _maxspeed
-        );
-        _rb.MovePosition(transform.position + transform.TransformDirection(movement));
-  
+        if (_isGameRunning)
+        {
+            var horizontal = Input.GetAxis("Horizontal");
+            var vertical = Input.GetAxis("Vertical");
+            var movement = new Vector3(
+                Time.deltaTime * horizontal * _maxspeed,
+                0,
+                Time.deltaTime * vertical * _maxspeed
+            );
+            _rb.MovePosition(transform.position + transform.TransformDirection(movement));
+        }
     }
     private void playerLookInput()
-    {
-        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+    {   if (_isGameRunning)
+        {
+            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
     }
 }
