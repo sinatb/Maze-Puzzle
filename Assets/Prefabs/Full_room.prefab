@@ -50,7 +50,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9b27b1b9f32b744bd8d29b92e8989f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxIntensity: 0.5
-  _maxFogNeighbourIntensity: 0.2
+  _maxIntensity: 0.7
   _light: {fileID: 4003693929013319575}
   _isFogBlock: 0
   _isFogNeighbour: 0

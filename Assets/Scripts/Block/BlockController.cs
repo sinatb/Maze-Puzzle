@@ -6,7 +6,6 @@ public class BlockController : MonoBehaviour
 {
     private int _playerCount = 0;
     [SerializeField] private float _maxIntensity;
-    [SerializeField] private float _maxFogNeighbourIntensity;
     [SerializeField] private Light _light;
     [SerializeField] private bool _isFogBlock;
     [SerializeField] private bool _isFogNeighbour;
@@ -38,20 +37,15 @@ public class BlockController : MonoBehaviour
 
     private void Start()
     {
-        if (_isFogNeighbour)
-            _light.intensity = _maxFogNeighbourIntensity;
+        if (!_isFogBlock)
+        {
+            setMatLight();
+            _light.intensity = _maxIntensity;        
+        }
         else
         {
-            if (!_isFogBlock)
-            {
-                setMatLight();
-                _light.intensity = _maxIntensity;        
-            }
-            else
-            {
-                setMatDark();
-                _light.intensity = 0.0f;
-            }
+            setMatDark();
+            _light.intensity = 0.0f;
         }
     }
     public void IncPlayerCount()
@@ -59,10 +53,10 @@ public class BlockController : MonoBehaviour
         _playerCount++;
         if (_playerCount == 1)
         {
-           _light.intensity = 0.3f;
+           _light.intensity /= 2;
         }else if (_playerCount == 2)
         {
-            _light.intensity = 0.2f;
+            _light.intensity /= 2;
         }else if ( _playerCount == 3)
         {
             setMatDark();
