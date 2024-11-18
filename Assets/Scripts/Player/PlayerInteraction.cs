@@ -22,6 +22,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         _isGameRunning = false;
     }
+    public void GameWin()
+    {
+        _isGameRunning = false;
+    }
     private void Update()
     {
         Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colldiers, _interactionMask);   

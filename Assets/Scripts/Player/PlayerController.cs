@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     {
         _isGameRunning = false;
     }
+    public void GameWin()
+    {
+        _isGameRunning = false;
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
