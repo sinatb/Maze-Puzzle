@@ -23,14 +23,15 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool CheckDependency(List<string> items)
     {
-        var items_len = items.Count;
-        foreach (var item in _inventoryItems)
+        int ctr = 0;
+        foreach (var item in items)
         {
-            if (items.Contains(item.Itemname))
+            Debug.Log(item);
+            if (HasItem(item))
             {
-                items_len--; 
+                ctr++;
             }
         }
-        return items_len == 0;
+        return ctr == items.Count - 1;
     }
 }

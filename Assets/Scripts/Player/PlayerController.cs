@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]private float _maxspeed;
+    [SerializeField] private float _maxspeed;
+    [SerializeField] private GameObject _flashLight;
     public Camera playerCamera;
     private float rotationX;
     public float lookSpeed = 2.0f;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            _flashLight.transform.localRotation = Quaternion.Euler(rotationX + 90, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
