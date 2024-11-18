@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class CraftingTable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private InventoryItemData _flashLight;
     public List<string> recipe = new List<string>()
     {
         "Battery",
         "Flashlight Casing",
-        "Optical Lens"
+        "Tape"
     };
     public string InteractionName => "Craft Flashlight";
 
     public void Interact(PlayerInteraction pi)
     {
-        if (pi.GetComponent<PlayerInventory>().CheckDependency(recipe))
+        if (pi.GetComponent<PlayerInventory>().Craft(recipe))
         {
-            Debug.Log("making Flashlight");
+            pi.GetComponent<PlayerInventory>().AddInventoryItem(_flashLight);
+            pi.GetComponent<PlayerController>().ActivateFlashlight();
         }
         else
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryItem : MonoBehaviour, IInteractable
 {
     public InventoryItemData data;
-    public string InteractionName => "Pick Up";
+    public string InteractionName => "Pick Up " + data.Itemname;
 
     public void Interact(PlayerInteraction pi)
     {
