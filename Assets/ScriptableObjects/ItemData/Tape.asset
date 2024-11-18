@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5922f09e9675375419c9114ed39424a9, type: 3}
-  m_Name: Lens
+  m_Name: Tape
   m_EditorClassIdentifier: 
-  Itemname: Optical Lens
-  Description: Optical Lens used for creating flashlight
+  Itemname: Tape
+  Description: Tape for Connecting the battery to the flashlight

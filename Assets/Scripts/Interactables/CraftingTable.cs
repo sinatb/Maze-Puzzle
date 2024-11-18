@@ -8,7 +8,7 @@ public class CraftingTable : MonoBehaviour, IInteractable
     {
         "Battery",
         "Flashlight Casing",
-        "Optical Lens"
+        "Tape"
     };
     public string InteractionName => "Craft Flashlight";
 
