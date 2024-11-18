@@ -37,7 +37,6 @@ public class PlayerInventory : MonoBehaviour
         int ctr = 0;
         foreach (var item in items)
         {
-            Debug.Log(item);
             if (HasItem(item))
             {
                 ctr++;
