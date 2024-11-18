@@ -29,7 +29,7 @@ public class PlayerState : MonoBehaviour
     {
         if (_isGameRunning)
         {
-            if (_playerInventory.HasItem("flashlight"))
+            if (_playerInventory.HasItem("FlashLight"))
             {
                 _Sanity += _FlashlightExtra;
             }
