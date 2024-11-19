@@ -10,44 +10,56 @@ public class PlayerInventory : MonoBehaviour
     {
         _inventoryItems.Add(i);
     }
-    public void RemoveInventoryItem(string s)
+    public void RemoveInventoryItem(InventoryItemData item)
     {
-        foreach (var item in _inventoryItems)
+        foreach (var it in _inventoryItems)
         {
-            if (item.Itemname == s)
+            if (item.Itemname == it.Itemname)
             {
                 _inventoryItems.Remove(item);
                 break;
             }
         }
     }
-    public bool HasItem(string name)
+    public bool HasItem(string itemname)
     {
         foreach (var item in _inventoryItems)
         {
-            if (item.Itemname == name)
+            if (itemname == item.Itemname)
             {
                 return true;
             }
         }
         return false;
     }
-    private bool CheckDependency(List<string> items)
+    public bool HasItem(InventoryItemData item)
+    {
+        foreach (var it in _inventoryItems)
+        {
+            if (item.Itemname == it.Itemname)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    private bool CheckDependency(Recipe r)
     {
         int ctr = 0;
-        foreach (var item in items)
+        foreach (var item in r.Items)
         {
             if (HasItem(item))
             {
                 ctr++;
             }
         }
-        return ctr == items.Count - 1;
+        return ctr == r.Items.Count;
     }
-    public bool Craft(List<string> recipe)
+    public bool Craft(Recipe r)
     {
-        if (CheckDependency(recipe)){
-            foreach (var item in recipe)
+        if (CheckDependency(r))
+        {
+            foreach (var item in r.Items)
             {
                 if (HasItem(item))
                 {

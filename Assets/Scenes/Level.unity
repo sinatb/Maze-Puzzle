@@ -1710,11 +1710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f6a239ffe0e20449dc87f7bb68a49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashLight: {fileID: 0}
+  _flashLight: {fileID: 11400000, guid: b81f532a2c883724cb9f73010b023fee, type: 2}
   recipe:
-  - Battery
-  - Flashlight Casing
-  - Optical Lens
+  - {fileID: 11400000, guid: 8069de439d393cc4ea5a3416077ed147, type: 2}
 --- !u!65 &487783931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3228,6 +3226,10 @@ PrefabInstance:
       propertyPath: _Sanity
       value: 2000
       objectReference: {fileID: 0}
+    - target: {fileID: 5217890622605762646, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
+      propertyPath: _flashLight
+      value: 
+      objectReference: {fileID: 11400000, guid: b81f532a2c883724cb9f73010b023fee, type: 2}
     - target: {fileID: 5449673746735926735, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3283,10 +3285,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6122893170750317714, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2108975281}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
 --- !u!1001 &829329949
 PrefabInstance:
@@ -7668,27 +7667,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85310b06f75b1449bbf33db4b1c311c, type: 3}
---- !u!1 &2108975270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6122893170750317714, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-  m_PrefabInstance: {fileID: 822525068}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2108975281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108975270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad4e2634779fa445849eab7745f0fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 1a76861160739474ea5cf6f6445a4bc3, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2124307924
 PrefabInstance:
   m_ObjectHideFlags: 0
