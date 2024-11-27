@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
@@ -11,6 +10,14 @@ public class Door : MonoBehaviour, IInteractable
     private Animator _animator;
     private bool _isOpen = false;
     private AudioSource _audioSource;
+    public bool HasPuzzle;
+    [ShowIf("HasPuzzle")]
+    [SerializeField] private PuzzleData _puzzleData;
+    [ShowIf("HasPuzzle")]
+    [SerializeField] private GameObject _puzzle;
+    private Puzzle _puzzleManager;
+    private bool _isPuzzleSolved;
+    private GameObject _puzzleInstance;
     private void Start()
     {
         _animator = GetComponent<Animator>();  
@@ -18,20 +25,51 @@ public class Door : MonoBehaviour, IInteractable
     }
     private void ToggleDoor()
     {
-       if (_isOpen) {
+        if (_isOpen)
+        {
             _animator.Play("door_close", 0, 0.0f);
             _audioSource.PlayOneShot(doorClose);
             _isOpen = false;
             _interactionName = "Open Door";
-       } else {
+        }
+        else
+        {
             _animator.Play("door_open", 0, 0.0f);
             _audioSource.PlayOneShot(doorOpen);
             _isOpen = true;
             _interactionName = "Close Door";
-       }
+        }
     }
     public void Interact(PlayerInteraction pi)
     {
-        ToggleDoor();
+        if (!HasPuzzle || (HasPuzzle && _isPuzzleSolved))
+        {
+            ToggleDoor();
+        }
+        else
+        {
+            pi.GetComponent<PlayerState>().PauseGame();
+            _puzzleInstance = Instantiate(_puzzle);
+            _puzzleManager = _puzzleInstance.GetComponent<Puzzle>();
+            _puzzleManager.SetCallback(OnPuzzleDone);
+            _puzzleManager.Setup(_puzzleData);
+        }
+    }
+
+    private void OnPuzzleDone()
+    {
+        if (_puzzleManager.CheckAnswer())
+        {
+            _isPuzzleSolved = true;
+            Destroy(_puzzleInstance);
+            GameManager.Instance.PlayerState.UnpauseGame();
+            GameManager.Instance.PlayerState.PuzzleSolve();
+        }
+        else
+        {
+            Destroy(_puzzleInstance);
+            GameManager.Instance.PlayerState.UnpauseGame();
+            GameManager.Instance.PlayerState.PuzzleMistake();
+        }
     }
 }

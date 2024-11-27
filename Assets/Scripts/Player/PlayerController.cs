@@ -11,19 +11,12 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     private Rigidbody _rb;
-    private bool _isGameRunning = true;
+    private PlayerState _state;
 
-    public void GameOver()
-    {
-        _isGameRunning = false;
-    }
-    public void GameWin()
-    {
-        _isGameRunning = false;
-    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _state = GetComponent<PlayerState>();
     }
     private void FixedUpdate()
     {
@@ -35,7 +28,7 @@ public class PlayerController : MonoBehaviour
     }
     private void playerMovementInput()
     {
-        if (_isGameRunning)
+        if (_state.IsGameRunning && !_state.IsGamePaused)
         {
             var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
@@ -48,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void playerLookInput()
-    {   if (_isGameRunning)
+    {   if (_state.IsGameRunning && !_state.IsGamePaused)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);

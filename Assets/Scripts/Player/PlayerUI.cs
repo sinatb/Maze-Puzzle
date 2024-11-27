@@ -61,6 +61,18 @@ public class PlayerUI : MonoBehaviour
         _isLocked = true;
         StartCoroutine(alertDisplayDelay());
     }
+    public void Pause()
+    {
+        StopAllCoroutines();
+        ClearText();
+        _isLocked = true;
+    }
+    public void UnPause()
+    {
+        StopAllCoroutines();
+        ClearText();
+        _isLocked = false;
+    }
     public void GameOver()
     {
         StopAllCoroutines();
