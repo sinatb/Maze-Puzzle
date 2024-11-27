@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _gameWinUI;
     [SerializeField] private TextMeshProUGUI _gameScoreText;
     [SerializeField] private TextMeshProUGUI _rankText;
+    [SerializeField] private TextMeshProUGUI _pointText;
     private bool _isLocked = false;
     private PlayerState _state;
 
@@ -27,6 +28,7 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         _sanitySlider.value = (_state.GetSanity() / 2000.0f);
+        _pointText.text = "Points : " + _state.GetScore().ToString();
     }
     private IEnumerator alertDisplayDelay()
     {

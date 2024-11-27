@@ -14,7 +14,6 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private Event _gameWinEvent;
     [SerializeField] private Event _gamePause;
     [SerializeField] private Event _gameUnPause;
-    [SerializeField] private float _Score = 0.0f;
     [SerializeField] private float _BaseLoss = 5.0f;
     [SerializeField] private List<float> _LightPenalty;
     [SerializeField] private float _fogPenalty;
@@ -125,5 +124,10 @@ public class PlayerState : MonoBehaviour
     {
         _gameUnPause.Raise();
         IsGamePaused = false;
+    }
+
+    public int GetScore()
+    {
+        return _score;
     }
 }
