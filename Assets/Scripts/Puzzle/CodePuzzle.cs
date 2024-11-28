@@ -8,6 +8,8 @@ public class CodePuzzle : Puzzle
 {
     private int _strLen;
     private string _answer;
+    private string _playerInput;
+    private bool _exitButtonPress;
     [SerializeField] private List<TextMeshProUGUI> _ciphertexts = new List<TextMeshProUGUI>();
     [SerializeField] private List<TextMeshProUGUI> _plaintexts = new List<TextMeshProUGUI>();
     private string rndString(string alphabet)
@@ -60,9 +62,31 @@ public class CodePuzzle : Puzzle
             _answer += dict[c];
         }
     }
+
+    public void SetPlayerInput(string s)
+    {
+        _playerInput = s;
+    }
+    public void SubmitButtonClick()
+    {
+        OnPuzzleDone?.Invoke();
+    }
+    public void ExitButtonClick()
+    {
+        _exitButtonPress = true;
+        OnPuzzleDone?.Invoke();
+    }
     public override PuzzleStatus CheckAnswer()
     {
-        throw new System.NotImplementedException();
+        if (_exitButtonPress)
+        {
+            return PuzzleStatus.Unsolved;
+        }
+        if (_answer == _playerInput)
+        {
+            return PuzzleStatus.Solved;
+        }
+        return PuzzleStatus.Mistake;
     }
 
     public override void Setup(PuzzleData p)
