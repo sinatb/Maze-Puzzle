@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,10 +7,6 @@ public class TextPuzzle : Puzzle
     private string _playerInput;
     private string _answer;
 
-    public override void SetCallback(callback c)
-    {
-        OnPuzzleDone += c;
-    }
     public override PuzzleStatus CheckAnswer()
     {
         if (_answer == _playerInput)

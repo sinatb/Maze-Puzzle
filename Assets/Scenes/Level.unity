@@ -1638,6 +1638,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: _puzzle
+      value: 
+      objectReference: {fileID: 5056941676138862734, guid: e8a6d2f5951c8d240b04f9e9e8c87f96, type: 3}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: HasPuzzle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: _puzzleData
+      value: 
+      objectReference: {fileID: 11400000, guid: 97c9b2634c02d9e4cb94aee91daec3f0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2944162267309191236, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}

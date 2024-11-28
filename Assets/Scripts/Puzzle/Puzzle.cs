@@ -2,7 +2,9 @@ using UnityEngine;
 public abstract class Puzzle : MonoBehaviour  
 {
     protected callback OnPuzzleDone;
-    public abstract void SetCallback(callback c);
+    public void SetCallback(callback c) {
+        OnPuzzleDone += c;
+    }
     public abstract void Setup(PuzzleData p);
     public abstract PuzzleStatus CheckAnswer();
 
