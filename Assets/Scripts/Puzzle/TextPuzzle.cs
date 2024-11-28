@@ -13,13 +13,13 @@ public class TextPuzzle : Puzzle
     {
         OnPuzzleDone += c;
     }
-    public override bool CheckAnswer()
+    public override PuzzleStatus CheckAnswer()
     {
         if (_answer == _playerInput)
         {
-            return true;
+            return PuzzleStatus.Solved;
         }
-        return false;
+        return PuzzleStatus.Mistake;
     }
 
     public void SetPlayerInput(string s)

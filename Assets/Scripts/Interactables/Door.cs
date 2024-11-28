@@ -58,18 +58,23 @@ public class Door : MonoBehaviour, IInteractable
 
     private void OnPuzzleDone()
     {
-        if (_puzzleManager.CheckAnswer())
+        if (_puzzleManager.CheckAnswer() == PuzzleStatus.Solved)
         {
             _isPuzzleSolved = true;
             Destroy(_puzzleInstance);
             GameManager.Instance.PlayerState.UnpauseGame();
             GameManager.Instance.PlayerState.PuzzleSolve();
         }
-        else
+        else if (_puzzleManager.CheckAnswer() == PuzzleStatus.Mistake)
         {
             Destroy(_puzzleInstance);
             GameManager.Instance.PlayerState.UnpauseGame();
             GameManager.Instance.PlayerState.PuzzleMistake();
+        }
+        else
+        {
+            Destroy(_puzzleInstance);
+            GameManager.Instance.PlayerState.UnpauseGame();
         }
     }
 }
