@@ -69,6 +69,7 @@ public class CodePuzzle : Puzzle
     }
     public void SubmitButtonClick()
     {
+        _exitButtonPress = false;
         OnPuzzleDone?.Invoke();
     }
     public void ExitButtonClick()

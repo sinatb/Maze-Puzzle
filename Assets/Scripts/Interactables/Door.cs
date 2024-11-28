@@ -49,10 +49,17 @@ public class Door : MonoBehaviour, IInteractable
         else
         {
             pi.GetComponent<PlayerState>().PauseGame();
-            _puzzleInstance = Instantiate(_puzzle);
-            _puzzleManager = _puzzleInstance.GetComponent<Puzzle>();
-            _puzzleManager.SetCallback(OnPuzzleDone);
-            _puzzleManager.Setup(_puzzleData);
+            if (_puzzleInstance == null)
+            {
+                _puzzleInstance = Instantiate(_puzzle);
+                _puzzleManager = _puzzleInstance.GetComponent<Puzzle>();
+                _puzzleManager.SetCallback(OnPuzzleDone);
+                _puzzleManager.Setup(_puzzleData);
+            }
+            else
+            {
+                _puzzleInstance.SetActive(true);
+            }
         }
     }
 
@@ -61,19 +68,19 @@ public class Door : MonoBehaviour, IInteractable
         if (_puzzleManager.CheckAnswer() == PuzzleStatus.Solved)
         {
             _isPuzzleSolved = true;
-            Destroy(_puzzleInstance);
+            _puzzleInstance.SetActive(false);
             GameManager.Instance.PlayerState.UnpauseGame();
             GameManager.Instance.PlayerState.PuzzleSolve();
         }
         else if (_puzzleManager.CheckAnswer() == PuzzleStatus.Mistake)
         {
-            Destroy(_puzzleInstance);
+            _puzzleInstance.SetActive(false);
             GameManager.Instance.PlayerState.UnpauseGame();
             GameManager.Instance.PlayerState.PuzzleMistake();
         }
         else
         {
-            Destroy(_puzzleInstance);
+            _puzzleInstance.SetActive(false);
             GameManager.Instance.PlayerState.UnpauseGame();
         }
     }
