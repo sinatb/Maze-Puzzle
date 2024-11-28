@@ -564,7 +564,15 @@ PrefabInstance:
     - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
       propertyPath: _puzzle
       value: 
+      objectReference: {fileID: 64246544346078962, guid: 0f56a8fe6cfc35b43a5c8300b2f44bbf, type: 3}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: HasPuzzle
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: _puzzleData
+      value: 
+      objectReference: {fileID: 11400000, guid: f1dcd63ace455f04ca584a8c19592ed2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1118,6 +1126,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: _puzzle
+      value: 
+      objectReference: {fileID: 64246544346078962, guid: 0f56a8fe6cfc35b43a5c8300b2f44bbf, type: 3}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: HasPuzzle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109708532275645864, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
+      propertyPath: _puzzleData
+      value: 
+      objectReference: {fileID: 11400000, guid: f1dcd63ace455f04ca584a8c19592ed2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2944162267309191236, guid: 4cc14259ea29c06499c2380f7b189925, type: 3}
