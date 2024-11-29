@@ -6,10 +6,10 @@ Currently, 8 Puzzles have been implemented. To open some of the doors the player
 
 
 ## TODO
-. Adding PCG for map generation
-. Improving the styling of UI
-. Improving the abstraction in puzzle code
-. Adding support for timed puzzles
-. Adding music and sound to all parts of the game
-. Adding more story bits for the story puzzle
-. Adding more items and craftables
+* Adding PCG for map generation
+* Improving the styling of UI
+* Improving the abstraction in puzzle code
+* Adding support for timed puzzles
+* Adding music and sound to all parts of the game
+* Adding more story bits for the story puzzle
+* Adding more items and craftables
