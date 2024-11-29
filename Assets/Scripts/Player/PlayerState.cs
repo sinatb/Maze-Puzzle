@@ -9,25 +9,35 @@ class RangeRank{
 }
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField] private float _Sanity = 2000.0f;
+    [SerializeField] private float _MaxSanity = 2000.0f;
     [SerializeField] private Event _gameOverEvent;
     [SerializeField] private Event _gameWinEvent;
-    [SerializeField] private float _Score = 0.0f;
+    [SerializeField] private Event _gamePause;
+    [SerializeField] private Event _gameUnPause;
     [SerializeField] private float _BaseLoss = 5.0f;
     [SerializeField] private List<float> _LightPenalty;
     [SerializeField] private float _fogPenalty;
     [SerializeField] private float _FlashlightExtra = 3.0f;
-    [SerializeField] private float _PuzzleMistakePenalty = -50.0f;
+    [SerializeField] private float _PuzzleMistakePenalty = 50.0f;
     [SerializeField] private float _PuzzleSolveExtra = 100.0f;
+    [SerializeField] private int _PuzzleSolvePoint = 60;
+    [SerializeField] private int _PuzzleMistakePoint = 10;
     [SerializeField] private List<RangeRank> _rangeList;
     private int _score = 0;
     private PlayerInventory _playerInventory;
     private int _blockCount;
     private bool _isFog;
-    private bool _isGameRunning = true;
+    private float _Sanity = 2000.0f;
+    public bool IsGameRunning { 
+        private set; get;
+    } = true;
+    public bool IsGamePaused
+    {
+        private set; get;
+    } = false;
     private void updateState() 
     {
-        if (_isGameRunning)
+        if (IsGameRunning)
         {
             if (_playerInventory.HasItem("FlashLight"))
             {
@@ -45,10 +55,10 @@ public class PlayerState : MonoBehaviour
 
     private void Update()
     {
-        if (_Sanity <= 0.0f && _isGameRunning)
+        if (_Sanity <= 0.0f && IsGameRunning)
         {
             _gameOverEvent.Raise();
-            _isGameRunning = false;
+            IsGameRunning = false;
         }
     }
 
@@ -61,7 +71,7 @@ public class PlayerState : MonoBehaviour
             bool _isGameWon = other.GetComponent<BlockCollider>().GetBlockController().GetIsFinishing();
             if (_isGameWon)
             {
-                _isGameRunning = false;
+                IsGameRunning = false;
                 _gameWinEvent.Raise();
             }
             if (!_isFog)
@@ -89,5 +99,35 @@ public class PlayerState : MonoBehaviour
     public float GetSanity()
     {
         return _Sanity;
+    }
+
+    public void PuzzleSolve()
+    {
+        _score += _PuzzleSolvePoint;
+        _Sanity += _PuzzleSolveExtra;
+        if (_Sanity > _MaxSanity)
+            _Sanity = _MaxSanity;
+    }
+
+    public void PuzzleMistake()
+    {
+        _score -= _PuzzleMistakePoint;
+        _Sanity -= _PuzzleMistakePenalty;
+        GetComponent<PlayerUI>().DisplayAlert("Wrong Answer");
+    }
+    public void PauseGame()
+    {
+        _gamePause.Raise();
+        IsGamePaused = true;
+    }
+    public void UnpauseGame()
+    {
+        _gameUnPause.Raise();
+        IsGamePaused = false;
+    }
+
+    public int GetScore()
+    {
+        return _score;
     }
 }

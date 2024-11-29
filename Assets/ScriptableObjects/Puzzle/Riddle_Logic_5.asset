@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca7e006fd3e8a14da2655edebe4a0ee, type: 3}
+  m_Name: Riddle_Logic_5
+  m_EditorClassIdentifier: 
+  Chances: 1
+  Question: 3 People are stuck in the cannibals Island. The cannibals (who are very
+    logical individuals) offer the prisioners a way out. There are 5 hats on the
+    table, 3 white and 2 black. They will stand in a line and if each of them knows
+    the color of their hat, They will all be free. The first man does not know the
+    answer and the second one doesn't know the answer either. But the first man know
+    the color of his hat. What color is the first mans hat ?
+  Answer: White

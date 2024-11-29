@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomSwitch : MonoBehaviour, IInteractable
 {
     public GameObject OtherRoom;
-    public string InteractionName => "Switch Room";
+    public string InteractionName => "Press E to Switch Room";
 
     public void Interact(PlayerInteraction pi)
     {

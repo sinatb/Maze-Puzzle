@@ -11,29 +11,22 @@ public class PlayerInteraction : MonoBehaviour
     PlayerUI ui;
     private bool _isWatchingCollider = false;
     private RaycastHit _hit;
-    private bool _isGameRunning = true;
+    private PlayerState _state;
     private readonly Collider[] _colldiers = new Collider[3];
     private void Start()
     {
         ui = GetComponent<PlayerUI>();
+        _state = GetComponent<PlayerState>();
     }
     
-    public void GameOver()
-    {
-        _isGameRunning = false;
-    }
-    public void GameWin()
-    {
-        _isGameRunning = false;
-    }
     private void Update()
     {
         Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colldiers, _interactionMask);   
-        if (_colldiers[0] != null && _isGameRunning)
+        if (_colldiers[0] != null && _state.IsGameRunning && !_state.IsGamePaused)
         {
             if (_isWatchingCollider) 
             {
-                ui.SetText("Press E to " + _colldiers[0].GetComponent<IInteractable>().InteractionName);
+                ui.SetText(_colldiers[0].GetComponent<IInteractable>().InteractionName);
             }
             else
             {
