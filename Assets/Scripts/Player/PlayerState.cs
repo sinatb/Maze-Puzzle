@@ -37,7 +37,7 @@ public class PlayerState : MonoBehaviour
     } = false;
     private void updateState() 
     {
-        if (IsGameRunning && !IsGamePaused)
+        if (IsGameRunning)
         {
             if (_playerInventory.HasItem("FlashLight"))
             {

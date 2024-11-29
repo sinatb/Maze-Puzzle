@@ -42,7 +42,6 @@ public class TripleTextPuzzle : Puzzle
         }
         else
         {
-            Debug.Log(_playerInput);
             if (_playerInput == _answers[_num])
             {
                 _num++;
