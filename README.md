@@ -13,3 +13,5 @@ Currently, 8 Puzzles have been implemented. To open some of the doors the player
 * Adding music and sound to all parts of the game
 * Adding more story bits for the story puzzle
 * Adding more items and craftables
+
+Critical bug: The switch model was deleted :)
