@@ -6,18 +6,43 @@ using Random = UnityEngine.Random;
 public class HangmanPuzzle : Puzzle
 {
     [SerializeField] private TextMeshProUGUI _sentenceUI;
-    [SerializeField] private TextMeshProUGUI _wrongUsedChars;
-    [SerializeField] private TextMeshProUGUI _correctUsedChars;
+    [SerializeField] private TextMeshProUGUI _cipherUI;
 
-    private string _playerInput;
+    private string _playerInputKey;
+    private string _playerInputValue;
     private List<string> _sentences;
+    private Dictionary<char, char> _mapping;
     private string _sentence;
     private bool _exitClicked;
     private bool _solved;
 
-    public void SetPlayerInput(string s)
+    public void SetPlayerInputKey(string s)
     {
-        _playerInput = s;
+        _playerInputKey = s;
+    }
+    public void SetPlayerInputValue(string s) 
+    {
+        _playerInputValue = s;
+    }
+    
+    private void createCipherUI(string sentence)
+    {
+        _mapping = new Dictionary<char, char>();
+        string alphabet = "abcdefghijklmnopqrstuvwxyz";
+        foreach (char c in sentence)
+        {
+            if (char.IsLetter(c)){
+                if (!_mapping.ContainsKey(c))
+                {
+                    int rnd = Random.Range(0, alphabet.Length);
+                    _mapping[c] = alphabet[rnd];
+                    alphabet = alphabet.Remove(rnd, 1);
+                }
+                _cipherUI.text += _mapping[c];
+            } else {
+                _cipherUI.text += c;
+            }
+        }
     }
     private void createSentenceUI(string sentence)
     {
@@ -25,7 +50,7 @@ public class HangmanPuzzle : Puzzle
         {
             if (Char.IsLetter(c))
             {
-                _sentenceUI.text += "_";
+                _sentenceUI.text += "-";
             }
             else
             {
@@ -33,25 +58,22 @@ public class HangmanPuzzle : Puzzle
             }
         }
     }
-    private void checkChar(char c)
+    private void checkMapping(char k, char v)
     {
-        if (!char.IsLetter(c) || 
-            (_correctUsedChars.text + _wrongUsedChars.text).Contains(char.ToLower(c)) ||
-            (_correctUsedChars.text + _wrongUsedChars.text).Contains(char.ToUpper(c))
-            )
+        if (!char.IsLetter(k) || !char.IsLetter(v))
             return;
-        if (!_sentence.Contains(char.ToLower(c)) && !_sentence.Contains(char.ToUpper(c))){
-            _wrongUsedChars.text += c;
-            return; 
-        }
+        if (!_sentence.Contains(char.ToLower(k)) && !_sentence.Contains(char.ToUpper(k)))
+            return;
+        if (!(_mapping.ContainsKey(char.ToLower(k)) || _mapping.ContainsKey(char.ToUpper(k))) ||
+            !(_mapping[char.ToLower(k)] == v || _mapping[char.ToUpper(k)] == v) )
+            return;
         int i = 0;
-        _correctUsedChars.text += c;
-        foreach (var ch in  _sentence)
+        foreach (var c in  _sentence)
         {
-            if (ch == char.ToUpper(c) || ch == char.ToLower(c))
+            if (c == char.ToUpper(k) || c == char.ToLower(k))
             {
                 _sentenceUI.text = _sentenceUI.text.Substring(0,i) 
-                    + ch 
+                    + c 
                     + _sentenceUI.text.Substring(i + 1);
             }
             i++;
@@ -67,8 +89,9 @@ public class HangmanPuzzle : Puzzle
     public void CheckButtonClick()
     {
         _exitClicked = false;
-        checkChar(_playerInput[0]);
-        if (!_sentenceUI.text.Contains("_")){
+        if (_playerInputKey != null && _playerInputValue != null)
+            checkMapping(_playerInputKey[0], _playerInputValue[0]);
+        if (!_sentenceUI.text.Contains("-")){
             _solved = true;
             OnPuzzleDone?.Invoke();
         }
@@ -92,11 +115,21 @@ public class HangmanPuzzle : Puzzle
         Chances = data.Chances;
         int num = Random.Range(0, _sentences.Count);
         _sentence = _sentences[num];
+        _mapping = new Dictionary<char, char>();
+
         createSentenceUI(_sentence);
+        createCipherUI(_sentence);
+        string hints = "";
         for (int i=0; i < data.HintCount; i++)
         {
             char rndChar = _sentence[Random.Range(0, _sentence.Length)];
-            checkChar(rndChar);
+            if (!Char.IsLetter(rndChar) || hints.Contains(rndChar))
+            {
+                i--;
+                continue;
+            }
+            checkMapping(rndChar, _mapping[rndChar]);
+            hints += rndChar;
         }
     }
 }
