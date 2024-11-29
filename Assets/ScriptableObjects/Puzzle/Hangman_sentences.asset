@@ -25,3 +25,4 @@ MonoBehaviour:
   - The end justifies the means
   - That which does not kill us makes us stronger
   HintCount: 4
+  GuessCount: 5

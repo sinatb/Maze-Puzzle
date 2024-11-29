@@ -5,4 +5,5 @@ public class HangmanPuzzleData : PuzzleData
 {
     public List<string> Sentences;
     public int HintCount;
+    public int GuessCount;
 }

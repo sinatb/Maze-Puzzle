@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class HangmanPuzzle : Puzzle
 {
     [SerializeField] private TextMeshProUGUI _sentenceUI;
+    [SerializeField] private TextMeshProUGUI _guessCountUI;
     [SerializeField] private TextMeshProUGUI _cipherUI;
 
     private string _playerInputKey;
@@ -15,6 +16,7 @@ public class HangmanPuzzle : Puzzle
     private string _sentence;
     private bool _exitClicked;
     private bool _solved;
+    private int _guessCount;
 
     public void SetPlayerInputKey(string s)
     {
@@ -64,8 +66,8 @@ public class HangmanPuzzle : Puzzle
             return;
         if (!_sentence.Contains(char.ToLower(k)) && !_sentence.Contains(char.ToUpper(k)))
             return;
-        if (!(_mapping.ContainsKey(char.ToLower(k)) || _mapping.ContainsKey(char.ToUpper(k))) ||
-            !(_mapping[char.ToLower(k)] == v || _mapping[char.ToUpper(k)] == v) )
+        if (!(_mapping.ContainsKey(char.ToLower(k)) && _mapping[char.ToLower(k)] == v) &&
+            !(_mapping.ContainsKey(char.ToUpper(k)) && _mapping[char.ToUpper(k)] == v) )
             return;
         int i = 0;
         foreach (var c in  _sentence)
@@ -89,10 +91,18 @@ public class HangmanPuzzle : Puzzle
     public void CheckButtonClick()
     {
         _exitClicked = false;
+        string before = _sentenceUI.text;
         if (_playerInputKey != null && _playerInputValue != null)
             checkMapping(_playerInputKey[0], _playerInputValue[0]);
+        if (_sentenceUI.text == before)
+            _guessCount--;
+        _guessCountUI.text = _guessCount.ToString();
         if (!_sentenceUI.text.Contains("-")){
             _solved = true;
+            OnPuzzleDone?.Invoke();
+        }
+        if (_guessCount == 0)
+        {
             OnPuzzleDone?.Invoke();
         }
     }
@@ -119,6 +129,8 @@ public class HangmanPuzzle : Puzzle
 
         createSentenceUI(_sentence);
         createCipherUI(_sentence);
+        _guessCount = data.GuessCount;
+        _guessCountUI.text = _guessCount.ToString();
         string hints = "";
         for (int i=0; i < data.HintCount; i++)
         {
