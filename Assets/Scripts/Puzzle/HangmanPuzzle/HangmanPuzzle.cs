@@ -89,6 +89,7 @@ public class HangmanPuzzle : Puzzle
     {
         HangmanPuzzleData data = (HangmanPuzzleData)p;
         _sentences = data.Sentences;
+        Chances = data.Chances;
         int num = Random.Range(0, _sentences.Count);
         _sentence = _sentences[num];
         createSentenceUI(_sentence);

@@ -76,6 +76,7 @@ public class TripleTextPuzzle : Puzzle
     public override void Setup(PuzzleData p)
     {
         TripleTextPuzzleData data = (TripleTextPuzzleData)p;
+        Chances = data.Chances;
         _questions = new List<string> { data.Q1,data.Q2,data.Q3};
         _answers = new List<string> { data.A1,data.A2,data.A3};
         setPuzzleState(_num);

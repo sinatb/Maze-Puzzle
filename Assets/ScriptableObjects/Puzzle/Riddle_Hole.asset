@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca7e006fd3e8a14da2655edebe4a0ee, type: 3}
   m_Name: Riddle_Hole
   m_EditorClassIdentifier: 
+  Chances: 1
   Question: The More You Reduce From Me The More I Increase            What Am I?
   Answer: Hole

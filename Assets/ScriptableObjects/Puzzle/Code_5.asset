@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2672e1faa215dd440a595dfbee152dfa, type: 3}
   m_Name: Code_5
   m_EditorClassIdentifier: 
+  Chances: 3
   StrLen: 5

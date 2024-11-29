@@ -8,7 +8,6 @@ public class BlockController : MonoBehaviour
     [SerializeField] private float _maxIntensity;
     [SerializeField] private Light _light;
     [SerializeField] private bool _isFogBlock;
-    [SerializeField] private bool _isFogNeighbour;
     [SerializeField] private bool _isFinishingBlock;
     [SerializeField] private Material _ceillingMat;
     [SerializeField] private Material _ceillingFogMat;

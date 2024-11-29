@@ -5,7 +5,7 @@ using UnityEngine;
 public class CraftingTable : MonoBehaviour, IInteractable
 {
     public List<Recipe> recipe = new List<Recipe>();
-    public string InteractionName => "Craft Flashlight";
+    public string InteractionName => "Press E to Craft Flashlight";
 
     public void Interact(PlayerInteraction pi)
     {

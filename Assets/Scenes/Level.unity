@@ -3253,6 +3253,10 @@ PrefabInstance:
       propertyPath: _PuzzleMistakePenalty
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5217890622605762646, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
+      propertyPath: _rangeList.Array.data[3].max
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 5449673746735926735, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

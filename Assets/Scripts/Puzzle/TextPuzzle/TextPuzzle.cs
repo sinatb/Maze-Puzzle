@@ -31,5 +31,6 @@ public class TextPuzzle : Puzzle
         TextPuzzleData data = (TextPuzzleData) p;
         _puzzleText.text = data.Question;
         _answer = data.Answer;
+        Chances = data.Chances;
     }
 }

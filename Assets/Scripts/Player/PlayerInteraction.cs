@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (_isWatchingCollider) 
             {
-                ui.SetText("Press E to " + _colldiers[0].GetComponent<IInteractable>().InteractionName);
+                ui.SetText(_colldiers[0].GetComponent<IInteractable>().InteractionName);
             }
             else
             {

@@ -93,6 +93,10 @@ PrefabInstance:
       propertyPath: doorClose
       value: 
       objectReference: {fileID: 8300000, guid: 3c0ade03a08193f40a3656f65eedb7c8, type: 3}
+    - target: {fileID: -3363248160105115, guid: 16d3b976106d561488ee6fef0113cc77, type: 3}
+      propertyPath: _interactionName
+      value: Press E to Open Door
+      objectReference: {fileID: 0}
     - target: {fileID: 1550407177270314640, guid: 16d3b976106d561488ee6fef0113cc77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6

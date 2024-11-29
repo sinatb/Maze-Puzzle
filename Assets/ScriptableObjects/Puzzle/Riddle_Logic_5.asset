@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca7e006fd3e8a14da2655edebe4a0ee, type: 3}
   m_Name: Riddle_Logic_5
   m_EditorClassIdentifier: 
+  Chances: 1
   Question: 3 People are stuck in the cannibals Island. The cannibals (who are very
     logical individuals) offer the prisioners a way out. There are 5 hats on the
     table, 3 white and 2 black. They will stand in a line and if each of them knows

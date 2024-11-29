@@ -93,6 +93,7 @@ public class CodePuzzle : Puzzle
     public override void Setup(PuzzleData p)
     {
         CodePuzzleData data = (CodePuzzleData)p;
+        Chances = data.Chances;
         _strLen = data.StrLen;
         createPuzzle();
     }

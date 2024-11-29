@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b9aa83eb04af54ba87dbe1893f9907, type: 3}
   m_Name: Riddle_Triple
   m_EditorClassIdentifier: 
+  Chances: 1
   Q1: 'Its second in France, Arabia and Iraq but firs in Russia '
   Q2: Where ever I go it stays behind me
   Q3: My lifetime is measured in hours and I serve you as I live. The fatter I am
