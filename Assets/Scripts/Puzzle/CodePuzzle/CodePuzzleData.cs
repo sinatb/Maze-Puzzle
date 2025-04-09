@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Code Puzzle Data", menuName = "Puzzle Data/Code Puzzle Data")]
-public class CodePuzzleData : PuzzleData
+namespace Puzzle.CodePuzzle
 {
-    public int StrLen;
+    [CreateAssetMenu(fileName = "Code Puzzle Data", menuName = "Puzzle Data/Code Puzzle Data")]
+    public class CodePuzzleData : PuzzleData
+    {
+        [FormerlySerializedAs("StrLen")] public int strLen;
+    }
 }

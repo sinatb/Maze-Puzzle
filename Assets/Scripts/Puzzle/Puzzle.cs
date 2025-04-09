@@ -1,18 +1,23 @@
+using Types;
 using UnityEngine;
-public abstract class Puzzle : MonoBehaviour  
+
+namespace Puzzle
 {
-    protected callback OnPuzzleDone;
-    protected int Chances;
-
-    public int ReduceChances()
+    public abstract class Puzzle : MonoBehaviour  
     {
-        Chances--;
-        return Chances;
-    }
-    public void SetCallback(callback c) {
-        OnPuzzleDone += c;
-    }
-    public abstract void Setup(PuzzleData p);
-    public abstract PuzzleStatus CheckAnswer();
+        protected Callback OnPuzzleDone;
+        protected int Chances;
 
+        public int ReduceChances()
+        {
+            Chances--;
+            return Chances;
+        }
+        public void SetCallback(Callback c) {
+            OnPuzzleDone += c;
+        }
+        public abstract void Setup(PuzzleData p);
+        public abstract PuzzleStatus CheckAnswer();
+
+    }
 }

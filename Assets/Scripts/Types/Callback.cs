@@ -1,1 +1,4 @@
-public delegate void callback();
+namespace Types
+{
+    public delegate void Callback();
+}

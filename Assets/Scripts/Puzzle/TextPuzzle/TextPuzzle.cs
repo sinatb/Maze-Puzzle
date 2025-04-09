@@ -1,36 +1,37 @@
 using TMPro;
+using Types;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class TextPuzzle : Puzzle
+namespace Puzzle.TextPuzzle
 {
-    [SerializeField] private TextMeshProUGUI _puzzleText;
-    private string _playerInput;
-    private string _answer;
-
-    public override PuzzleStatus CheckAnswer()
+    public class TextPuzzle : Puzzle
     {
-        if (_answer == _playerInput)
+        [FormerlySerializedAs("_puzzleText")] [SerializeField] private TextMeshProUGUI puzzleText;
+        private string _playerInput;
+        private string _answer;
+
+        public override PuzzleStatus CheckAnswer()
         {
-            return PuzzleStatus.Solved;
+            return _answer == _playerInput ? PuzzleStatus.Solved : PuzzleStatus.Mistake;
         }
-        return PuzzleStatus.Mistake;
-    }
 
-    public void SetPlayerInput(string s)
-    {
-        _playerInput = s;
-    }
+        public void SetPlayerInput(string s)
+        {
+            _playerInput = s;
+        }
 
-    public void ButtonClick()
-    {
-        OnPuzzleDone?.Invoke();
-    }
+        public void ButtonClick()
+        {
+            OnPuzzleDone?.Invoke();
+        }
 
-    public override void Setup(PuzzleData p)
-    {
-        TextPuzzleData data = (TextPuzzleData) p;
-        _puzzleText.text = data.Question;
-        _answer = data.Answer;
-        Chances = data.Chances;
+        public override void Setup(PuzzleData p)
+        {
+            var data = (TextPuzzleData) p;
+            puzzleText.text = data.question;
+            _answer = data.answer;
+            Chances = data.chances;
+        }
     }
 }

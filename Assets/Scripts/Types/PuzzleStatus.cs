@@ -1,6 +1,9 @@
-public enum PuzzleStatus
+namespace Types
 {
-    Solved,
-    Mistake,
-    Unsolved
+    public enum PuzzleStatus
+    {
+        Solved,
+        Mistake,
+        Unsolved
+    }
 }

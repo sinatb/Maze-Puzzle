@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Event = Events.Event;
+
 [Serializable]
 class RangeRank{
     public int min;

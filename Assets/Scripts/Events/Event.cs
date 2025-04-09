@@ -1,29 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Event", menuName = "Events/Event")]
-public class Event : ScriptableObject
+
+namespace Events
 {
-    private readonly List<IEventListener> eventListeners = new List<IEventListener>();
-
-
-    public void Raise()
+    [CreateAssetMenu(fileName = "Event", menuName = "Events/Event")]
+    public class Event : ScriptableObject
     {
-        foreach (var l in eventListeners)
+        private readonly List<IEventListener> _eventListeners = new List<IEventListener>();
+
+
+        public void Raise()
         {
-            l.OnRaise();
+            foreach (var l in _eventListeners)
+            {
+                l.OnRaise();
+            }
         }
-    }
 
-    public void RegisterListener(IEventListener l)
-    {
-        if (!eventListeners.Contains(l))
-            eventListeners.Add(l);
-    }
+        public void RegisterListener(IEventListener l)
+        {
+            if (!_eventListeners.Contains(l))
+                _eventListeners.Add(l);
+        }
 
-    public void RemoveListener(IEventListener l)
-    {
-        if (eventListeners.Contains(l))
-            eventListeners.Remove(l);
+        public void RemoveListener(IEventListener l)
+        {
+            if (_eventListeners.Contains(l))
+                _eventListeners.Remove(l);
+        }
     }
 }

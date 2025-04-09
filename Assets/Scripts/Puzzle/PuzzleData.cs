@@ -1,6 +1,10 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PuzzleData : ScriptableObject
+namespace Puzzle
 {
-    public int Chances;
+    public class PuzzleData : ScriptableObject
+    {
+        [FormerlySerializedAs("Chances")] public int chances;
+    }
 }

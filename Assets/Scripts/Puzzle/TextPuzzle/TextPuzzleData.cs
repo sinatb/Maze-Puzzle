@@ -1,7 +1,12 @@
 using UnityEngine;
-[CreateAssetMenu(fileName ="Text Puzzle Data",menuName ="Puzzle Data/Text Puzzle Data")]
-public class TextPuzzleData : PuzzleData
+using UnityEngine.Serialization;
+
+namespace Puzzle.TextPuzzle
 {
-    public string Question;
-    public string Answer;
+    [CreateAssetMenu(fileName ="Text Puzzle Data",menuName ="Puzzle Data/Text Puzzle Data")]
+    public class TextPuzzleData : PuzzleData
+    {
+        [FormerlySerializedAs("Question")] public string question;
+        [FormerlySerializedAs("Answer")] public string answer;
+    }
 }
