@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c49a2e6d7c4ed388aaa7bd2cf7f2a0, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  seed: 0
+  size: 5
+  blockPrefab: {fileID: 3242688370940993092, guid: f85310b06f75b1449bbf33db4b1c311c, type: 3}
+  scale: 4
+  safeRoomCount: 1
+  supplyRoomCount: 5
+  generatorRoomCount: 1
+  workshopRoomCount: 4
+  safeRoomData: {fileID: 11400000, guid: a31d4c61199af49429827e2a5a9bff80, type: 2}

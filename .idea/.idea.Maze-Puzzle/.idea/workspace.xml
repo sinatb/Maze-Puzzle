@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockGraphics.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockGraphics.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/BaseRoom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/BaseRoom.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PuzzlePrefabs/CodePuzzle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PuzzlePrefabs/CodePuzzle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +42,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI-Improvement&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;PCG&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -99,6 +105,11 @@
       <updated>1744177712742</updated>
       <workItem from="1744177716106" duration="2961000" />
       <workItem from="1744458134565" duration="33000" />
+      <workItem from="1744615035925" duration="1894000" />
+      <workItem from="1746858261566" duration="1814000" />
+      <workItem from="1746939434977" duration="2382000" />
+      <workItem from="1747028360434" duration="4976000" />
+      <workItem from="1747033640897" duration="6891000" />
     </task>
     <servers />
   </component>

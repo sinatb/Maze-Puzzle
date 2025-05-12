@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbc9f01636d43288cca68fc2329ee71, type: 3}
+  m_Name: SafeRoom
+  m_EditorClassIdentifier: 
+  width: 2
+  height: 2
+  doorX: 0
+  doorZ: 0
+  doorDirection: 0
+  roomObjects:
+  - tag: Bed
+    prefab: {fileID: 1149636019640970946, guid: 38b7d4cc704954d4d9d322855a6ca140, type: 3}
+    position: {x: 2, y: 1, z: 5}
+    rotation: {x: 0, y: 0, z: 0}
