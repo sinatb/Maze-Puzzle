@@ -116,16 +116,20 @@ namespace PCG
             switch (direction)
             {
                 case Direction.Left : 
-                    _roomGrid[z, x - 1].ClearWall(Direction.Right);
+                    if (x - 1 >= 0)
+                        _roomGrid[z, x - 1].ClearWall(Direction.Right);
                     break;
                 case Direction.Right :
-                    _roomGrid[z, x + 1].ClearWall(Direction.Left);
+                    if (x + 1 <= generatorParams.size)
+                        _roomGrid[z, x + 1].ClearWall(Direction.Left);
                     break;
                 case Direction.Down : 
-                    _roomGrid[z - 1, x].ClearWall(Direction.Up);
+                    if (z - 1 >= 0)
+                        _roomGrid[z - 1, x].ClearWall(Direction.Up);
                     break;
                 case Direction.Up : 
-                    _roomGrid[z + 1, x].ClearWall(Direction.Down);
+                    if (z + 1 <= generatorParams.size)
+                        _roomGrid[z + 1, x].ClearWall(Direction.Down);
                     break;
                 default:
                     break;
@@ -144,7 +148,9 @@ namespace PCG
         private void Generate()
         {
             SetupGrid();
-            PlaceRoom(1,2, generatorParams.supplyRoomData);
+            PlaceRoom(0,0, generatorParams.supplyRoomData);
+            PlaceRoom(2,2, generatorParams.safeRoomData);
+            PlaceRoom(5,5, generatorParams.generatorRoomData);
         }
 
         private void Start()

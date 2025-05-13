@@ -22,3 +22,4 @@ MonoBehaviour:
   workshopRoomCount: 4
   safeRoomData: {fileID: 11400000, guid: a31d4c61199af49429827e2a5a9bff80, type: 2}
   supplyRoomData: {fileID: 11400000, guid: 587c452f3d721424788b41335d46e433, type: 2}
+  generatorRoomData: {fileID: 11400000, guid: f0fcb92932fc3044e97c0fed65f98c19, type: 2}

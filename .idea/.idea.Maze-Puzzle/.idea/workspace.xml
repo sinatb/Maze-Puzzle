@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Storage.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Storage.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +102,7 @@
       <workItem from="1747028360434" duration="4976000" />
       <workItem from="1747033640897" duration="6984000" />
       <workItem from="1747114353270" duration="7810000" />
-      <workItem from="1747145720060" duration="1562000" />
+      <workItem from="1747145720060" duration="2747000" />
     </task>
     <servers />
   </component>

@@ -86,7 +86,7 @@ namespace Block
                     leftDoor.SetActive(true);
                     break;
                 case Direction.Right:
-                    rightWall.SetActive(true);
+                    rightWall.SetActive(false);
                     rightDoor.SetActive(true);
                     break;
                 default:
