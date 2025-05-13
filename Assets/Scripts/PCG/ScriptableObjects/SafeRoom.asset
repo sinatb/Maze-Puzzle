@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbc9f01636d43288cca68fc2329ee71, type: 3}
   m_Name: SafeRoom
   m_EditorClassIdentifier: 
-  width: 4
-  height: 4
-  doorX: 3
+  width: 2
+  height: 2
+  doorX: 0
   doorZ: 0
   doorDirection: 1
   roomObjects:
+  - tag: Rack
+    prefab: {fileID: 6598739973808483247, guid: 9420b6fdcef843643b7a3b626b686b0c, type: 3}
+    position: {x: 6.8, y: 0.8, z: 0.7}
+    rotation: {x: 0, y: 0, z: 0}
   - tag: Bed
-    prefab: {fileID: 1149636019640970946, guid: 38b7d4cc704954d4d9d322855a6ca140, type: 3}
-    position: {x: 2, y: 1, z: 5}
+    prefab: {fileID: 3778375375208565098, guid: 101f2464c88d66148a9dc521d5479222, type: 3}
+    position: {x: 1.2, y: 1.5, z: 5.5}
+    rotation: {x: 0, y: 90, z: 0}
+  - tag: WorkBench
+    prefab: {fileID: 8313506609212508531, guid: 0ccb359d0ee6f004d8d8b9d982a3caec, type: 3}
+    position: {x: 7, y: 0.5, z: 6.2}
     rotation: {x: 0, y: 0, z: 0}
