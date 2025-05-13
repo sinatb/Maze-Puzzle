@@ -1,4 +1,3 @@
-using System;
 using Block;
 using PCG.RoomData;
 using UnityEngine;
@@ -26,7 +25,6 @@ namespace PCG
                 }
             }
         }
-
         private void ClearRooms(int x, int z, int xSize, int zSize)
         {
             // Clearing for room 0,0
@@ -112,18 +110,41 @@ namespace PCG
                 }
             }
         }
+        private void CreateDoor(int x, int z, Direction direction)
+        {
+            _roomGrid[z, x].EnableDoor(direction);
+            switch (direction)
+            {
+                case Direction.Left : 
+                    _roomGrid[z, x - 1].ClearWall(Direction.Right);
+                    break;
+                case Direction.Right :
+                    _roomGrid[z, x + 1].ClearWall(Direction.Left);
+                    break;
+                case Direction.Down : 
+                    _roomGrid[z - 1, x].ClearWall(Direction.Up);
+                    break;
+                case Direction.Up : 
+                    _roomGrid[z + 1, x].ClearWall(Direction.Down);
+                    break;
+                default:
+                    break;
+            }
+        }
         private void PlaceRoom(int x, int z, BaseRoom rd)
         {
             ClearRooms(x,z,rd.width, rd.height);
+            
             // Opening a door to the newly created room
-            _roomGrid[z + rd.doorZ, x + rd.doorX].EnableDoor(rd.doorDirection);
+            CreateDoor(x + rd.doorX,z + rd.doorZ, rd.doorDirection);
+            
             // Adding 
             rd.Setup(new Vector3(x * generatorParams.scale, 0, z * generatorParams.scale));
         }
         private void Generate()
         {
             SetupGrid();
-            PlaceRoom(2,2, generatorParams.safeRoomData);
+            PlaceRoom(1,2, generatorParams.supplyRoomData);
         }
 
         private void Start()

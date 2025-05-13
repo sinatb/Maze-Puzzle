@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room/SafeRoom.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SafeRoom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SafeRoom.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +98,8 @@
       <workItem from="1746939434977" duration="2382000" />
       <workItem from="1747028360434" duration="4976000" />
       <workItem from="1747033640897" duration="6984000" />
-      <workItem from="1747114353270" duration="6863000" />
+      <workItem from="1747114353270" duration="7810000" />
+      <workItem from="1747145720060" duration="1562000" />
     </task>
     <servers />
   </component>

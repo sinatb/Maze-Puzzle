@@ -12,7 +12,7 @@ namespace PCG
         
         // Block Data
         public GameObject blockPrefab;
-        public int scale;
+        public int        scale;
         
         // Room generation Parameters
         public int safeRoomCount;
@@ -22,6 +22,7 @@ namespace PCG
         
         // Room generation Assets
         public BaseRoom safeRoomData;
+        public BaseRoom supplyRoomData;
 
     }
 }

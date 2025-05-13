@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   seed: 0
-  size: 5
+  size: 10
   blockPrefab: {fileID: 3242688370940993092, guid: f85310b06f75b1449bbf33db4b1c311c, type: 3}
   scale: 4
   safeRoomCount: 1
@@ -21,3 +21,4 @@ MonoBehaviour:
   generatorRoomCount: 1
   workshopRoomCount: 4
   safeRoomData: {fileID: 11400000, guid: a31d4c61199af49429827e2a5a9bff80, type: 2}
+  supplyRoomData: {fileID: 11400000, guid: 587c452f3d721424788b41335d46e433, type: 2}
