@@ -24,6 +24,7 @@ namespace PCG
         public BaseRoom safeRoomData;
         public BaseRoom supplyRoomData;
         public BaseRoom generatorRoomData;
+        public BaseRoom workshopRoomData;
         
     }
 }

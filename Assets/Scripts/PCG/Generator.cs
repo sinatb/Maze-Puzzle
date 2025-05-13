@@ -148,9 +148,10 @@ namespace PCG
         private void Generate()
         {
             SetupGrid();
-            PlaceRoom(0,0, generatorParams.supplyRoomData);
+            PlaceRoom(3,5, generatorParams.supplyRoomData);
             PlaceRoom(2,2, generatorParams.safeRoomData);
-            PlaceRoom(5,5, generatorParams.generatorRoomData);
+            PlaceRoom(7,7, generatorParams.generatorRoomData);
+            PlaceRoom(0,0, generatorParams.workshopRoomData);
         }
 
         private void Start()
