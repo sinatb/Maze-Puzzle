@@ -27,6 +27,32 @@ namespace PCG.RoomData
         
         //Room Objects
         public List<ObjectData> roomObjects;
+
+        void OnValidate()
+        {
+            if (doorX < 0 || doorX >= width)
+            {
+                Debug.LogError("Door X must be between 0 and width - 1");
+            }
+            if (doorZ < 0 || doorZ >= height)
+            {
+                Debug.LogError("Door Z must be between 0 and height - 1");
+            }
+            if (doorX != 0 && doorX != width - 1)
+            {
+                if (doorZ != 0 && doorZ != height - 1)
+                {
+                    Debug.LogError("Door X must be 0 or width - 1");
+                }
+            }
+            if (doorZ != 0 && doorZ != height - 1)
+            {
+                if (doorX != 0 && doorX != width - 1)
+                {
+                    Debug.LogError("Door Z must be 0 or height - 1");
+                }
+            }
+        }
         
         //Functions
         public void Setup(Vector3 basePosition)

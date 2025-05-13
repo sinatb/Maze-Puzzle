@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbc9f01636d43288cca68fc2329ee71, type: 3}
   m_Name: SafeRoom
   m_EditorClassIdentifier: 
-  width: 2
-  height: 2
-  doorX: 0
+  width: 4
+  height: 4
+  doorX: 3
   doorZ: 0
   doorDirection: 1
   roomObjects:
