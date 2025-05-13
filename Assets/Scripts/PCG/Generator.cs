@@ -115,6 +115,7 @@ namespace PCG
         private void PlaceRoom(int x, int z, BaseRoom rd)
         {
             ClearRooms(x,z,rd.width, rd.height);
+            _roomGrid[z + rd.doorZ, x + rd.doorX].EnableDoor(rd.doorDirection);
             rd.Setup(new Vector3(x,0,z));
         }
         private void Generate()

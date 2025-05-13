@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Block
@@ -17,11 +16,16 @@ namespace Block
 
         [SerializeField] private bool       isFogBlock;
         [SerializeField] private bool       isFinishingBlock;
+        // Walls
         [SerializeField] private GameObject topWall;
         [SerializeField] private GameObject downWall;
         [SerializeField] private GameObject leftWall;
         [SerializeField] private GameObject rightWall;
-        
+        // Doors
+        [SerializeField] private GameObject rightDoor;
+        [SerializeField] private GameObject leftDoor;
+        [SerializeField] private GameObject topDoor;
+        [SerializeField] private GameObject downDoor;
         private void Awake()
         {
             _blockGraphics = GetComponent<BlockGraphics>();
@@ -44,6 +48,7 @@ namespace Block
         {
             return isFinishingBlock;
         }
+        // PCG Related Functions
         public void ClearWall(Direction direction)
         {
             switch (direction)
@@ -59,6 +64,32 @@ namespace Block
                     break;
                 case Direction.Right:
                     rightWall.SetActive(false);
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void EnableDoor(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                   topWall.SetActive(false);
+                   topDoor.SetActive(true);
+                   break;
+                case Direction.Down:
+                    downWall.SetActive(false);
+                    downDoor.SetActive(true);
+                    break;
+                case Direction.Left:
+                    leftWall.SetActive(false);
+                    leftDoor.SetActive(true);
+                    break;
+                case Direction.Right:
+                    rightWall.SetActive(true);
+                    rightDoor.SetActive(true);
+                    break;
+                default:
                     break;
             }
         }

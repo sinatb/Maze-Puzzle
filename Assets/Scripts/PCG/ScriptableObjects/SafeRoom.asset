@@ -16,7 +16,7 @@ MonoBehaviour:
   height: 2
   doorX: 0
   doorZ: 0
-  doorDirection: 0
+  doorDirection: 1
   roomObjects:
   - tag: Bed
     prefab: {fileID: 1149636019640970946, guid: 38b7d4cc704954d4d9d322855a6ca140, type: 3}
