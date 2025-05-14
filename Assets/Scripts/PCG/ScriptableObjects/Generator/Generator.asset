@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbc9f01636d43288cca68fc2329ee71, type: 3}
-  m_Name: WorkshopRoom
+  m_Script: {fileID: 11500000, guid: 99ab449ee85b491ea9764b3102450474, type: 3}
+  m_Name: Generator
   m_EditorClassIdentifier: 
-  width: 1
-  height: 2
-  doorX: 0
-  doorZ: 0
-  doorDirection: 1
-  roomObjects: []

@@ -28,6 +28,10 @@ namespace PCG.RoomData
         //Room Objects
         public List<ObjectData> roomObjects;
 
+        //Block Type Data
+        public BlockType  blockType;
+
+        
         void OnValidate()
         {
             if (doorX < 0 || doorX >= width)

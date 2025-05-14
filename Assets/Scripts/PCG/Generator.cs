@@ -8,7 +8,6 @@ namespace PCG
     {
         public GeneratorParams generatorParams;
         private BlockController[,] _roomGrid;
-
         private void SetupGrid()
         {
             _roomGrid = new BlockController[generatorParams.size, generatorParams.size];
@@ -30,7 +29,6 @@ namespace PCG
             // Clearing for room 0,0
             _roomGrid[z,x].ClearWall(Direction.Up);
             _roomGrid[z,x].ClearWall(Direction.Right);
-            
             if (xSize == 1)
             {
                 // Clearing for room 0,zsize
@@ -110,6 +108,16 @@ namespace PCG
                 }
             }
         }
+        private void SetBlockType(int x, int z, int xSize, int zSize, BlockType blockType)
+        {
+            for (var i = z; i < z + zSize - 1; i++)
+            {
+                for (var j= x; j < x + xSize - 1; j++)
+                {
+                    _roomGrid[i, j].SetBlockType(blockType);
+                }
+            }
+        }
         private void CreateDoor(int x, int z, Direction direction)
         {
             _roomGrid[z, x].EnableDoor(direction);
@@ -135,10 +143,42 @@ namespace PCG
                     break;
             }
         }
+        private bool CheckRoomPosition(int x, int z, int xSize, int zSize)
+        {
+            for (var i = z; i < z + zSize - 1; i++)
+            {
+                for (var j= x; j < x + xSize - 1; j++)
+                {
+                    if (!_roomGrid[i, j].IsCorridor())
+                        return false;
+                }
+            }
+            return true;
+        }
+        private void ChooseRoomPosition()
+        {
+            foreach (var roomData in generatorParams.roomDataList)
+            {
+                var roomCount = roomData.roomCount;
+                var roomDataObj = roomData.roomData;
+                var padding = generatorParams.padding;
+                for (var i = 0; i < roomCount; i++)
+                {
+                    var x = Random.Range(padding, generatorParams.size-padding);
+                    var z = Random.Range(padding, generatorParams.size-padding);
+                    while (!CheckRoomPosition(x, z, roomDataObj.width, roomDataObj.height))
+                    {
+                        x = Random.Range(padding, generatorParams.size-padding);
+                        z = Random.Range(padding, generatorParams.size-padding);
+                    }
+                    PlaceRoom(x,z,roomDataObj);
+                }
+            }
+        }
         private void PlaceRoom(int x, int z, BaseRoom rd)
         {
             ClearRooms(x,z,rd.width, rd.height);
-            
+            SetBlockType(x,z,rd.width,rd.height,rd.blockType);
             // Opening a door to the newly created room
             CreateDoor(x + rd.doorX,z + rd.doorZ, rd.doorDirection);
             
@@ -148,10 +188,8 @@ namespace PCG
         private void Generate()
         {
             SetupGrid();
-            PlaceRoom(3,5, generatorParams.supplyRoomData);
-            PlaceRoom(2,2, generatorParams.safeRoomData);
-            PlaceRoom(7,7, generatorParams.generatorRoomData);
-            PlaceRoom(0,0, generatorParams.workshopRoomData);
+            ChooseRoomPosition();
+            
         }
 
         private void Start()

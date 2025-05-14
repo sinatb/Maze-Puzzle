@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockType.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/RoomDataPair.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/RoomDataPair.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorParams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/BaseRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/RoomData/BaseRoom.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Generator.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Generator.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/GeneratorRoom.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/GeneratorRoom.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SafeRoom.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SafeRoom.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SupplyRoom.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/SupplyRoom.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/WorkshopRoom.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/WorkshopRoom.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +115,8 @@
       <workItem from="1747028360434" duration="4976000" />
       <workItem from="1747033640897" duration="6984000" />
       <workItem from="1747114353270" duration="7810000" />
-      <workItem from="1747145720060" duration="3850000" />
+      <workItem from="1747145720060" duration="7302000" />
+      <workItem from="1747200310219" duration="2800000" />
     </task>
     <servers />
   </component>

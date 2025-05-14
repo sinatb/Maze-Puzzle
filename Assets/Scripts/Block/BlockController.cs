@@ -11,6 +11,7 @@ namespace Block
     }
     public class BlockController : MonoBehaviour
     {
+        private BlockType                   _blockType;
         private int                         _playerCount = 0;
         private BlockGraphics               _blockGraphics;
 
@@ -47,6 +48,14 @@ namespace Block
         public bool GetIsFinishing()
         {
             return isFinishingBlock;
+        }
+        public void SetBlockType(BlockType blockType)
+        {
+            _blockType = blockType;
+        }
+        public bool IsCorridor()
+        {
+            return _blockType == null;
         }
         // PCG Related Functions
         public void ClearWall(Direction direction)

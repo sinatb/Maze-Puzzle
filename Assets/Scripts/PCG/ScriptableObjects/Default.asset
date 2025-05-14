@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   seed: 0
-  size: 10
+  size: 40
+  padding: 5
   blockPrefab: {fileID: 3242688370940993092, guid: f85310b06f75b1449bbf33db4b1c311c, type: 3}
   scale: 4
-  safeRoomCount: 1
-  supplyRoomCount: 5
-  generatorRoomCount: 1
-  workshopRoomCount: 4
-  safeRoomData: {fileID: 11400000, guid: a31d4c61199af49429827e2a5a9bff80, type: 2}
-  supplyRoomData: {fileID: 11400000, guid: 587c452f3d721424788b41335d46e433, type: 2}
-  generatorRoomData: {fileID: 11400000, guid: f0fcb92932fc3044e97c0fed65f98c19, type: 2}
-  workshopRoomData: {fileID: 11400000, guid: 806a66037a68c4243b2702f4e8218690, type: 2}
+  roomDataList:
+  - roomData: {fileID: 11400000, guid: f0fcb92932fc3044e97c0fed65f98c19, type: 2}
+    roomCount: 2
+  - roomData: {fileID: 11400000, guid: a31d4c61199af49429827e2a5a9bff80, type: 2}
+    roomCount: 1
+  - roomData: {fileID: 11400000, guid: 587c452f3d721424788b41335d46e433, type: 2}
+    roomCount: 3
+  - roomData: {fileID: 11400000, guid: 806a66037a68c4243b2702f4e8218690, type: 2}
+    roomCount: 4

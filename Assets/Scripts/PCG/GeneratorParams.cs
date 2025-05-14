@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Block;
 using PCG.RoomData;
 using UnityEngine;
 
@@ -9,22 +11,13 @@ namespace PCG
         // General Parameters
         public int seed;
         public int size;
+        public int padding;
         
         // Block Data
         public GameObject blockPrefab;
         public int        scale;
         
-        // Room generation Parameters
-        public int safeRoomCount;
-        public int supplyRoomCount;
-        public int generatorRoomCount;
-        public int workshopRoomCount;
-        
         // Room generation Assets
-        public BaseRoom safeRoomData;
-        public BaseRoom supplyRoomData;
-        public BaseRoom generatorRoomData;
-        public BaseRoom workshopRoomData;
-        
+        public List<RoomDataPair> roomDataList;
     }
 }
