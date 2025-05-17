@@ -22,3 +22,4 @@ MonoBehaviour:
     prefab: {fileID: 587445323458831747, guid: 1d53232290f282b4fbbf8243540e70d0, type: 3}
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+  blockType: {fileID: 11400000, guid: 245b8e0be2d8b814e882e96c6fe9a8ca, type: 2}
