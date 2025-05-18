@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +101,7 @@
       <workItem from="1747145720060" duration="7302000" />
       <workItem from="1747200310219" duration="4856000" />
       <workItem from="1747465391299" duration="12838000" />
-      <workItem from="1747547744991" duration="2067000" />
+      <workItem from="1747547744991" duration="4650000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Block;
 using PCG;
@@ -8,15 +7,31 @@ using Random = UnityEngine.Random;
 
 namespace Util
 {
+    /// <summary>
+    /// A Utility class, to be only used in generator.
+    /// </summary>
     public class GeneratorUtil
     {
+        /// <summary>
+        /// The grid of all rooms in the map. The first element is z and the second one x
+        /// </summary>
         private readonly BlockController[,] _roomGrid;
+        /// <summary>
+        /// Parameters of the Generator, Passed in Generator Start Method. Is-a Scriptable Object 
+        /// </summary>
         private readonly GeneratorParams    _generatorParams;
         public GeneratorUtil(BlockController[,] grid, GeneratorParams generatorParams)
         {
             _roomGrid = grid;
             _generatorParams = generatorParams;
         }
+        /// <summary>
+        /// Helper function to clear a room
+        /// </summary>
+        /// <param name="x">Starting x coordinate of the room</param>
+        /// <param name="z">Starting z coordinate of the room</param>
+        /// <param name="xSize">Size of room in x-axis</param>
+        /// <param name="zSize">Size of room in z-axis</param>
         public void ClearRooms(int x, int z, int xSize, int zSize)
         {
             // Clearing for room 0,0
@@ -101,6 +116,14 @@ namespace Util
                 }
             }
         }
+        /// <summary>
+        /// Given a block type sets all Blocks in a rectangular area to that type
+        /// </summary>
+        /// <param name="x">Starting x coordinate</param>
+        /// <param name="z">Starting z coordinate</param>
+        /// <param name="xSize">Size in x-axis</param>
+        /// <param name="zSize">Size in z-axis</param>
+        /// <param name="blockType">Type of blocks in area. Is-a Scriptable object set in room</param>
         public void SetBlockType(int x, int z, int xSize, int zSize, BlockType blockType)
         {
             for (var i = z; i < z + zSize; i++)
@@ -119,6 +142,12 @@ namespace Util
                 }
             }
         }
+        /// <summary>
+        /// Activates door in a block
+        /// </summary>
+        /// <param name="x">Starting x coordinates</param>
+        /// <param name="z">Starting z coordinates</param>
+        /// <param name="direction">Direction of the door</param>
         public void CreateDoor(int x, int z, Direction direction)
         {
             _roomGrid[z, x].EnableDoor(direction);
@@ -144,6 +173,14 @@ namespace Util
                     break;
             }
         }
+        /// <summary>
+        /// Checks if a room can be placed at requested position. Rooms cant be placed on other rooms
+        /// </summary>
+        /// <param name="x">Starting x coordinate</param>
+        /// <param name="z">Starting z coordinate</param>
+        /// <param name="xSize">Size in x-axis</param>
+        /// <param name="zSize">Size in z-axis</param>
+        /// <returns>If the room can be placed in requested position</returns>
         public bool CheckRoomPosition(int x, int z, int xSize, int zSize)
         {
             for (var i = z; i < z + zSize; i++)
@@ -156,6 +193,12 @@ namespace Util
             }
             return true;
         }
+        /// <summary>
+        /// Gets neighbour of current block in one of four directions
+        /// </summary>
+        /// <param name="bc">Block controller of current block</param>
+        /// <param name="dir">Direction of requested neighbour</param>
+        /// <returns>The room in requested direction. Null if invalid.</returns>
         public BlockController GetNeighbour(BlockController bc, Direction dir)
         {
             var (x, z) = BlockTransformToGrid(bc);
@@ -168,12 +211,23 @@ namespace Util
                 _ => null
             };
         }
+        /// <summary>
+        /// Returns x and z of a block in the grid using its coordinates in game.
+        /// Because the Coordinates start from 0,0 and all are multiplied by a size from generatorParams, this method is
+        /// possible. 
+        /// </summary>
+        /// <param name="bc">Block controller of the block.</param>
+        /// <returns>A tuple (x, z).</returns>
         private (int, int) BlockTransformToGrid(BlockController bc)
         {
             var x = (int)bc.transform.position.x;
             var z = (int)bc.transform.position.z;
             return (x / _generatorParams.scale, z / _generatorParams.scale);
         }
+        /// <summary>
+        /// Creates a random list of 4 directions
+        /// </summary>
+        /// <returns>Random list of directions.</returns>
         public List<Direction> GetRandomDirectionList()
         {
             var directions = new List<Direction>() { Direction.Up, Direction.Right, Direction.Down, Direction.Left};
@@ -186,6 +240,11 @@ namespace Util
             }
             return rndDirections;
         }
+        /// <summary>
+        /// Given 2 neighbouring rooms, deletes the walls between them.
+        /// </summary>
+        /// <param name="b1">First block</param>
+        /// <param name="b2">Second Block</param>
         public void DeleteWalls(BlockController b1, BlockController b2)
         {
             var bc1 = BlockTransformToGrid(b1);
