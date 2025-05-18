@@ -74,7 +74,8 @@ namespace PCG
         /// <param name="path">Rooms visited before</param>
         private void CreateCorridors(BlockController bc, List<BlockController> path)
         {
-            Debug.Log(bc.transform.position);
+            if (DebugUtil.Instance.showDebugData)
+                Debug.Log(bc.transform.position);
             bc.SetVisited();
             var directions = _util.GetRandomDirectionList();
             foreach (var direction in directions)

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Block;
 using PCG;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Direction = Block.Direction;
 using Random = UnityEngine.Random;
@@ -16,6 +17,8 @@ namespace Util
         /// The grid of all rooms in the map. The first element is z and the second one x
         /// </summary>
         private readonly BlockController[,] _roomGrid;
+
+        private readonly Pill[,] _pillars;
         /// <summary>
         /// Parameters of the Generator, Passed in Generator Start Method. Is-a Scriptable Object 
         /// </summary>
@@ -206,8 +209,8 @@ namespace Util
             {
                 Direction.Up => z + 1 < _generatorParams.size  ? _roomGrid[z + 1, x] : null,
                 Direction.Right => x + 1 < _generatorParams.size  ? _roomGrid[z, x + 1] : null,
-                Direction.Left => x - 1 > 0 ? _roomGrid[z, x - 1] : null,
-                Direction.Down => z - 1 > 0 ? _roomGrid[z - 1, x] : null,
+                Direction.Left => x - 1 >= 0 ? _roomGrid[z, x - 1] : null,
+                Direction.Down => z - 1 >= 0 ? _roomGrid[z - 1, x] : null,
                 _ => null
             };
         }
@@ -254,18 +257,38 @@ namespace Util
             {
                 b1.ClearWall(Direction.Left);
                 b2.ClearWall(Direction.Right);
+                //Pillar Logic
+                b1.GetPillar().DeactivateBool(Direction.Up);
+                var up = GetNeighbour(b1, Direction.Up);
+                if (up != null)
+                    up.GetPillar().DeactivateBool(Direction.Down);
             }else if (bc1.Item1 < bc2.Item1)
             {
                 b1.ClearWall(Direction.Right);
                 b2.ClearWall(Direction.Left);
+                //Pillar Logic
+                b2.GetPillar().DeactivateBool(Direction.Up);
+                var up = GetNeighbour(b2, Direction.Up);
+                if (up != null)
+                    up.GetPillar().DeactivateBool(Direction.Down);
             }else if (bc1.Item2 > bc2.Item2)
             {
                 b1.ClearWall(Direction.Down);
                 b2.ClearWall(Direction.Up);
+                //Pillar Logic
+                b1.GetPillar().DeactivateBool(Direction.Right);
+                var right = GetNeighbour(b1, Direction.Right);
+                if (right != null)
+                    right.GetPillar().DeactivateBool(Direction.Left);
             }else if (bc1.Item2 < bc2.Item2)
             {
                 b1.ClearWall(Direction.Up);
                 b2.ClearWall(Direction.Down);
+                //Pillar Logic
+                b2.GetPillar().DeactivateBool(Direction.Right);
+                var right = GetNeighbour(b2, Direction.Right);
+                if (right != null)
+                    right.GetPillar().DeactivateBool(Direction.Left);
             }
         }
     }

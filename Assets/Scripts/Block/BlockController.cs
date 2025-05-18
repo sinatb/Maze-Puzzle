@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Block
@@ -28,6 +29,8 @@ namespace Block
         [SerializeField] private GameObject leftDoor;
         [SerializeField] private GameObject topDoor;
         [SerializeField] private GameObject downDoor;
+        // Pillar
+        [SerializeField] private Pillar pillar;
         private void Awake()
         {
             _blockGraphics = GetComponent<BlockGraphics>();
@@ -103,7 +106,6 @@ namespace Block
                     break;
             }
         }
-
         public bool IsVisited()
         {
             return _visited;
@@ -111,6 +113,10 @@ namespace Block
         public void SetVisited()
         {
             _visited = true;
+        }
+        public Pillar GetPillar()
+        {
+            return pillar;
         }
     }
 }
