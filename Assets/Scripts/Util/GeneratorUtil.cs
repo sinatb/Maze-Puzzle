@@ -1,8 +1,12 @@
+using System;
+using System.Collections.Generic;
 using Block;
+using PCG;
 using UnityEngine;
-using Util;
+using Direction = Block.Direction;
+using Random = UnityEngine.Random;
 
-namespace PCG
+namespace Util
 {
     public class GeneratorUtil
     {
@@ -104,9 +108,11 @@ namespace PCG
                 for (var j= x; j < x + xSize; j++)
                 {
                     _roomGrid[i, j].SetBlockType(blockType);
-                    DebugUtil.DrawDebugText(new Vector3(j * _generatorParams.scale + _generatorParams.scale / 2.0f,
+                    DebugUtil.Instance.DrawDebugText(new Vector3(
+                                                        j * _generatorParams.scale + _generatorParams.scale / 2.0f,
                                                         5,
-                                                        i * _generatorParams.scale + _generatorParams.scale / 2.0f),
+                                                        i * _generatorParams.scale + _generatorParams.scale / 2.0f
+                                                        ),
                                         "Room",
                                         Color.red,
                                         12);
@@ -149,6 +155,59 @@ namespace PCG
                 }
             }
             return true;
+        }
+        public BlockController GetNeighbour(BlockController bc, Direction dir)
+        {
+            var (x, z) = BlockTransformToGrid(bc);
+            return dir switch
+            {
+                Direction.Up => z + 1 < _generatorParams.size  ? _roomGrid[z + 1, x] : null,
+                Direction.Right => x + 1 < _generatorParams.size  ? _roomGrid[z, x + 1] : null,
+                Direction.Left => x - 1 > 0 ? _roomGrid[z, x - 1] : null,
+                Direction.Down => z - 1 > 0 ? _roomGrid[z - 1, x] : null,
+                _ => null
+            };
+        }
+        private (int, int) BlockTransformToGrid(BlockController bc)
+        {
+            var x = (int)bc.transform.position.x;
+            var z = (int)bc.transform.position.z;
+            return (x / _generatorParams.scale, z / _generatorParams.scale);
+        }
+        public List<Direction> GetRandomDirectionList()
+        {
+            var directions = new List<Direction>() { Direction.Up, Direction.Right, Direction.Down, Direction.Left};
+            var rndDirections = new List<Direction>();
+            while (directions.Count > 0)
+            {
+                var rnd = Random.Range(0, directions.Count);
+                rndDirections.Add(directions[rnd]);
+                directions.RemoveAt(rnd);
+            }
+            return rndDirections;
+        }
+        public void DeleteWalls(BlockController b1, BlockController b2)
+        {
+            var bc1 = BlockTransformToGrid(b1);
+            var bc2 = BlockTransformToGrid(b2);
+            // Item1 = x, Item2 = z
+            if (bc1.Item1 > bc2.Item1)
+            {
+                b1.ClearWall(Direction.Left);
+                b2.ClearWall(Direction.Right);
+            }else if (bc1.Item1 < bc2.Item1)
+            {
+                b1.ClearWall(Direction.Right);
+                b2.ClearWall(Direction.Left);
+            }else if (bc1.Item2 > bc2.Item2)
+            {
+                b1.ClearWall(Direction.Down);
+                b2.ClearWall(Direction.Up);
+            }else if (bc1.Item2 < bc2.Item2)
+            {
+                b1.ClearWall(Direction.Up);
+                b2.ClearWall(Direction.Down);
+            }
         }
     }
 }

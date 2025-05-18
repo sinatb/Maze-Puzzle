@@ -14,6 +14,7 @@ namespace Block
         private BlockType                   _blockType;
         private int                         _playerCount = 0;
         private BlockGraphics               _blockGraphics;
+        private bool                        _visited;
 
         [SerializeField] private bool       isFogBlock;
         [SerializeField] private bool       isFinishingBlock;
@@ -101,6 +102,15 @@ namespace Block
                 default:
                     break;
             }
+        }
+
+        public bool IsVisited()
+        {
+            return _visited;
+        }
+        public void SetVisited()
+        {
+            _visited = true;
         }
     }
 }

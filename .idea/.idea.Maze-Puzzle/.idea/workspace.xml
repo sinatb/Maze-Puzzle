@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorUtil.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/GeneratorUtil.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/Generator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Default.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Safe/SafeRoom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Safe/SafeRoom.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Supply/SupplyRoom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Supply/SupplyRoom.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Workshop/WorkshopRoom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PCG/ScriptableObjects/Workshop/WorkshopRoom.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,8 @@
       <workItem from="1747114353270" duration="7810000" />
       <workItem from="1747145720060" duration="7302000" />
       <workItem from="1747200310219" duration="4856000" />
-      <workItem from="1747465391299" duration="2667000" />
+      <workItem from="1747465391299" duration="12838000" />
+      <workItem from="1747547744991" duration="2067000" />
     </task>
     <servers />
   </component>
@@ -125,5 +121,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs</url>
+          <line>59</line>
+          <properties documentPath="D:\works\gameDev\projects\Maze-Puzzle\Assets\Scripts\Util\DebugUtil.cs" containingFunctionPresentation="Method 'DrawDebugText'">
+            <startOffsets>
+              <option value="1717" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1718" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

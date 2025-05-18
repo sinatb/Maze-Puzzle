@@ -7,11 +7,12 @@ namespace Util
 {
     public class DebugUtil : MonoBehaviour
     {
+        public bool showDebugData;
         public static DebugUtil Instance { get; private set;}
 
         [SerializeField] private int objectCount;
         
-        private static List<GameObject> _debugObjects;
+        private List<GameObject> _debugObjects;
 
         
         public void Awake()
@@ -38,12 +39,14 @@ namespace Util
             }
         }
 
-        private static GameObject GetDebugObject()
+        private GameObject GetDebugObject()
         {
             return _debugObjects.FirstOrDefault(go => go.activeSelf == false);
         }
-        public static void DrawDebugText(Vector3 pos,string txt, Color color = default, int size = 30)
+        public void DrawDebugText(Vector3 pos,string txt, Color color = default, int size = 30)
         {
+            if (!showDebugData)
+                return;
             if (color == default)
                 color = Color.red;
 

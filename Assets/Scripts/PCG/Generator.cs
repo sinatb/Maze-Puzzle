@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using Block;
 using PCG.RoomData;
 using UnityEngine;
+using Util;
 
 namespace PCG
 {
@@ -55,20 +57,38 @@ namespace PCG
             // Adding 
             rd.Setup(new Vector3(x * generatorParams.scale, 0, z * generatorParams.scale));
         }
-        private void CreateCorridors()
+        private void CreateCorridors(BlockController bc, List<BlockController> path)
         {
-            
+            Debug.Log(bc.transform.position);
+            bc.SetVisited();
+            var directions = _util.GetRandomDirectionList();
+            foreach (var direction in directions)
+            {
+                var nb = _util.GetNeighbour(bc,direction);
+                if (nb != null && !nb.IsVisited() && nb.IsCorridor())
+                {
+                    _util.DeleteWalls(bc,nb);
+                    path.Add(nb);
+                    CreateCorridors(nb,path);
+                }
+            }
+            if (path.Count == 1)
+                return;
+            path.RemoveAt(path.Count-1);
+            CreateCorridors(path[^1],path);
         }
         private void Generate()
         {
             SetupGrid();
             _util = new GeneratorUtil(_roomGrid, generatorParams);
             ChooseRoomPosition();
+            var path = new List<BlockController>() {_roomGrid[0,0]};
+            CreateCorridors(_roomGrid[0,0], path);
         }
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.05f);
             Generate();
         }
     }
