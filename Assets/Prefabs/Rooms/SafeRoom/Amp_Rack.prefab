@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3688296269470448435}
   - component: {fileID: 2434271548499521307}
   - component: {fileID: 4607116655033095773}
+  - component: {fileID: -5250185915534078292}
   m_Layer: 0
   m_Name: Amp_Rack
   m_TagString: Untagged
@@ -110,3 +111,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d31353d1f3002254bb9c6dccb795b548, type: 3}
+--- !u!114 &-5250185915534078292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598739973808483247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a988980c278f84482498f383c93ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

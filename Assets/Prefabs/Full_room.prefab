@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3061792266764351476
 Transform:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207660759666318617}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.9608205, b: 0.5943396, a: 1}
@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 2290061659288641927}
   - component: {fileID: 4269704560796886655}
   - component: {fileID: 732498762230316606}
+  - component: {fileID: -7783759788755489040}
   m_Layer: 0
   m_Name: Full_room
   m_TagString: Untagged
@@ -243,6 +244,18 @@ MonoBehaviour:
   ceilingFogMat: {fileID: 2100000, guid: a6f1e4f620f0c4d4db225d1f45d938a1, type: 2}
   floorMat: {fileID: 2100000, guid: 929dc3bf41496594cbcd3d4badf496d4, type: 2}
   floorCeiling: {fileID: 6062940538493102884}
+--- !u!114 &-7783759788755489040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242688370940993092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a988980c278f84482498f383c93ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4319392777538614619
 GameObject:
   m_ObjectHideFlags: 0

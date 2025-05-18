@@ -24,8 +24,10 @@ namespace PCG
                     var position = new Vector3(j * generatorParams.scale,
                         0,
                         i * generatorParams.scale);
-                    _roomGrid[i, j] = Instantiate(generatorParams.blockPrefab, position, Quaternion.identity).
-                                      GetComponent<BlockController>();
+                    var po = GameManager.Instance.pool.GetPooledObject("Block");
+                    po.transform.position = position;
+                    po.transform.rotation = Quaternion.identity;
+                    _roomGrid[i, j] = po.GetComponent<BlockController>();
                 }
             }
         }
@@ -96,19 +98,13 @@ namespace PCG
         /// <summary>
         /// Generates Maze
         /// </summary>
-        private void Generate()
+        public void Generate()
         {
             SetupGrid();
             _util = new GeneratorUtil(_roomGrid, generatorParams);
             PlaceRandomRoom();
             var path = new List<BlockController>() {_roomGrid[0,0]};
             CreateCorridors(_roomGrid[0,0], path);
-        }
-        //TODO: Solve dependency issue with DebugUtil and all other Utils
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(0.05f);
-            Generate();
         }
     }
 }

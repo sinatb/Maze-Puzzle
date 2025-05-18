@@ -14,7 +14,6 @@ namespace PCG
         public int padding;
         
         // Block Data
-        public GameObject blockPrefab;
         public int        scale;
         
         // Room generation Assets

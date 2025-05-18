@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 137394506867516919}
   - component: {fileID: 4048255598650457586}
   - component: {fileID: 8385271873122249014}
+  - component: {fileID: 4442388991345094916}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -86,3 +87,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4442388991345094916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778375375208565098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a988980c278f84482498f383c93ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
