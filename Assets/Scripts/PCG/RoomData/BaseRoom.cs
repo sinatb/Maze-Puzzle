@@ -63,9 +63,9 @@ namespace PCG.RoomData
         {
             foreach (var ro in roomObjects)
             {
-                Instantiate(ro.prefab,
-                     ro.position + basePosition,
-                     Quaternion.Euler(ro.rotation));
+                var obj = GameManager.Instance.pool.GetPooledObject(ro.tag);
+                obj.transform.position = ro.position + basePosition;
+                obj.transform.rotation = Quaternion.Euler(ro.rotation);
             }
         }
     }

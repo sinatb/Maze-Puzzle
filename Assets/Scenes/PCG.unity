@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554e1161c26f0404b97212aaa54780ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cullables: []
   pool: {fileID: 1563073737}
   cullingDistance: 20
   generator: {fileID: 246841864}
@@ -333,6 +332,21 @@ MonoBehaviour:
   - name: Block
     prefab: {fileID: 3242688370940993092, guid: f85310b06f75b1449bbf33db4b1c311c, type: 3}
     count: 2000
+  - name: Generator
+    prefab: {fileID: 6074960233339811385, guid: bdd650e07b240234d94ed499fb31af48, type: 3}
+    count: 10
+  - name: WorkBench
+    prefab: {fileID: 8313506609212508531, guid: 0ccb359d0ee6f004d8d8b9d982a3caec, type: 3}
+    count: 20
+  - name: Bed
+    prefab: {fileID: 3778375375208565098, guid: 101f2464c88d66148a9dc521d5479222, type: 3}
+    count: 10
+  - name: Rack
+    prefab: {fileID: 6598739973808483247, guid: 9420b6fdcef843643b7a3b626b686b0c, type: 3}
+    count: 10
+  - name: Storage
+    prefab: {fileID: 587445323458831747, guid: 1d53232290f282b4fbbf8243540e70d0, type: 3}
+    count: 10
 --- !u!4 &1563073738
 Transform:
   m_ObjectHideFlags: 0
@@ -392,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc75efbba2f4ca1be621893f2b5d35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebugData: 0
+  showDebugData: 1
   objectCount: 70
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
