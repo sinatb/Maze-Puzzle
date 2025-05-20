@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using Types;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Pooling
         [SerializeField] private List<PoolingData> poolingData;
         
         private Dictionary<string, List<GameObject>> _pool;
+        private Dictionary<string, List<GameObject>> _activePool;
         private void Start()
         {
             _pool = new Dictionary<string, List<GameObject>>();

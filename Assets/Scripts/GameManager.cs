@@ -8,16 +8,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    [HideInInspector]
-    public List<Cullable> cullables;
     public ObjectPool     pool;
     public float          cullingDistance;
-
+    private List<Cullable> _cullables;
     
     [SerializeField] private Generator  generator;
     [SerializeField] private GameObject player;
     private void Awake()
     {
+        _cullables = new List<Cullable>();
         if (Instance == null){
             Instance = this;
         }
@@ -41,12 +40,18 @@ public class GameManager : MonoBehaviour
         generator.Generate();
     }
 
+    public void AddCullable(Cullable c)
+    {
+        _cullables.Add(c);
+    }
     private void Update()
     {
-        foreach(var cullable in cullables)
+        foreach(var cullable in _cullables)
         {
-            cullable.gameObject.SetActive(!(Vector3.Distance(cullable.transform.position, player.transform.position) >
-                                            cullingDistance));
+            if (Vector3.Distance(cullable.transform.position, player.transform.position) > cullingDistance)
+                cullable.Cull();
+            else
+                cullable.UnCull();
         }
     }
 }
