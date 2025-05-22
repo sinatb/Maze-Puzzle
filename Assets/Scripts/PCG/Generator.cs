@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Block;
 using PCG.RoomData;
+using Room;
 using UnityEngine;
 using Util;
 
@@ -63,7 +64,13 @@ namespace PCG
         private void SetupRoom(int x, int z, BaseRoom rd)
         {
             _util.ClearRooms(x,z,rd.width, rd.height);
-            _util.SetBlockType(x,z,rd.width,rd.height,rd.blockType);
+            
+            var room = GameManager.Instance.pool.GetPooledObject("Room").GetComponent<RoomController>();
+            room.Setup(rd.roomType);
+            
+            _util.SetupRoomController(x, z,rd.width,rd.height, room);
+            _util.SetRoomLightingData(x, z,rd.width,rd.height, room, rd);
+            
             // Opening a door to the newly created room
             _util.CreateDoor(x + rd.doorX,z + rd.doorZ, rd.doorDirection);
             // Adding 

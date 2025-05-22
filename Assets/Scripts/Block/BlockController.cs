@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+using Room;
 using UnityEngine;
 
 namespace Block
@@ -13,11 +12,11 @@ namespace Block
     }
     public class BlockController : MonoBehaviour
     {
-        private BlockType                   _blockType;
         private int                         _playerCount = 0;
         private BlockGraphics               _blockGraphics;
         private bool                        _visited;
-
+        private RoomController              _room;
+        
         [SerializeField] private bool       isFogBlock;
         [SerializeField] private bool       isFinishingBlock;
         // Walls
@@ -54,13 +53,9 @@ namespace Block
         {
             return isFinishingBlock;
         }
-        public void SetBlockType(BlockType blockType)
-        {
-            _blockType = blockType;
-        }
         public bool IsCorridor()
         {
-            return _blockType == null;
+            return _room == null;
         }
         // PCG Related Functions
         public void ClearWall(Direction direction)
@@ -118,6 +113,14 @@ namespace Block
         public Pillar GetPillar()
         {
             return pillar;
+        }
+        /// <summary>
+        /// Only use in RoomController;
+        /// </summary>
+        /// <param name="room">New RoomController</param>
+        public void SetRoom(RoomController room)
+        {
+            _room = room;
         }
     }
 }

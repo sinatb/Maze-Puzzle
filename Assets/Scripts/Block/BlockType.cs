@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Block
 {
-    [CreateAssetMenu(fileName = "BlockType", menuName = "Block/BlockType")]
-    public class BlockType : ScriptableObject
+    [CreateAssetMenu(fileName = "RoomType", menuName = "Room/RoomType")]
+    public class RoomType : ScriptableObject
     {
         
     }

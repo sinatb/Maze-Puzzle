@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 1563073737}
-  cullingDistance: 20
+  cullingDistance: 35
   generator: {fileID: 246841864}
   player: {fileID: 1300959565}
 --- !u!4 &906246268
@@ -347,6 +347,9 @@ MonoBehaviour:
   - name: Storage
     prefab: {fileID: 587445323458831747, guid: 1d53232290f282b4fbbf8243540e70d0, type: 3}
     count: 10
+  - name: Room
+    prefab: {fileID: 6827975996090195540, guid: f4a61a065c0e6004686cd28f0937b6fe, type: 3}
+    count: 20
 --- !u!4 &1563073738
 Transform:
   m_ObjectHideFlags: 0

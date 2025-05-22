@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Block
 {
@@ -60,6 +59,13 @@ namespace Block
                     mainLight.intensity = 0.0f;
                     break;
             }
+        }
+
+        public void ChangeLightIntensity(float intensity)
+        {
+            if (intensity == 0.0f)
+                mainLight.gameObject.SetActive(false);
+            mainLight.intensity = intensity;
         }
     }
 }

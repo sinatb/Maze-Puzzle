@@ -28,9 +28,13 @@ namespace PCG.RoomData
         //Room Objects
         public List<ObjectData> roomObjects;
 
-        //Block Type Data
-        public BlockType  blockType;
+        //Room Type Data
+        public RoomType  roomType;
 
+        //Lighting Data
+        [HideInInspector]
+        public bool[] lightGrid;
+        public float lightIntensity;
         
         void OnValidate()
         {
@@ -56,6 +60,16 @@ namespace PCG.RoomData
                     Debug.LogError("Door Z must be 0 or height - 1");
                 }
             }
+
+            var size = width * height;
+            if (lightGrid != null && lightGrid.Length == size) return;
+            var newLightGrid = new bool[size];
+            for (var i = 0; i < size; i++)
+            {
+                if (lightGrid != null) 
+                    newLightGrid[i] = lightGrid[i];
+            }
+            lightGrid = newLightGrid;
         }
         
         //Functions
@@ -67,6 +81,48 @@ namespace PCG.RoomData
                 obj.transform.position = ro.position + basePosition;
                 obj.transform.rotation = Quaternion.Euler(ro.rotation);
             }
+        }
+        
+        public bool GetLightingGridValue(int x, int z)
+        {
+            if (x < 0 || x >= width || z < 0 || z >= height)
+            {
+                Debug.LogError("Grid index out of bounds");
+                return false;
+            }
+            return lightGrid[z * width + x];
+        }
+
+        public void SetLightingGridValue(int x, int z, bool value)
+        {
+            if (x < 0 || x >= width || z < 0 || z >= height)
+            {
+                Debug.LogError("Grid index out of bounds");
+                return;
+            }
+            lightGrid[z * width + x] = value;
+        }
+        
+        public void ResizeLightingGrid(int newWidth, int newHeight)
+        {
+            var oldWidth = width;
+            var oldHeight = height;
+            width = newWidth;
+            height = newHeight;
+            var newGrid = new bool[width * height];
+
+            if (lightGrid != null)
+            {
+                for (int y = 0; y < Mathf.Min(height, oldHeight); y++)
+                {
+                    for (int x = 0; x < Mathf.Min(width, oldWidth); x++)
+                    {
+                        newGrid[y * width + x] = GetLightingGridValue(x, y);
+                    }
+                }
+            }
+
+            lightGrid = newGrid;
         }
     }
 }

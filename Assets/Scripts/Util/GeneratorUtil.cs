@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Block;
 using PCG;
+using PCG.RoomData;
+using Room;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Direction = Block.Direction;
@@ -120,20 +122,20 @@ namespace Util
             }
         }
         /// <summary>
-        /// Given a block type sets all Blocks in a rectangular area to that type
+        /// Adds all blocks in area to the room controller.
         /// </summary>
         /// <param name="x">Starting x coordinate</param>
         /// <param name="z">Starting z coordinate</param>
         /// <param name="xSize">Size in x-axis</param>
         /// <param name="zSize">Size in z-axis</param>
-        /// <param name="blockType">Type of blocks in area. Is-a Scriptable object set in room</param>
-        public void SetBlockType(int x, int z, int xSize, int zSize, BlockType blockType)
+        /// <param name="room">The room that the blocks should be added to</param>
+        public void SetupRoomController(int x, int z, int xSize, int zSize, RoomController room)
         {
             for (var i = z; i < z + zSize; i++)
             {
                 for (var j= x; j < x + xSize; j++)
                 {
-                    _roomGrid[i, j].SetBlockType(blockType);
+                    room.AddBlock(_roomGrid[i,j].gameObject);
                     DebugUtil.Instance.DrawDebugText(new Vector3(
                                                         j * _generatorParams.scale + _generatorParams.scale / 2.0f,
                                                         5,
@@ -143,6 +145,21 @@ namespace Util
                                         Color.red,
                                         12);
                 }
+            }
+        }
+
+        public void SetRoomLightingData(int x, int z, int xSize, int zSize, RoomController room, BaseRoom rd)
+        {
+            for (var i = z; i < z + zSize; i++)
+            {
+                for (var j= x; j < x + xSize; j++)
+                {
+                    var xIndex = j - x;
+                    var zIndex = i - z;
+                    var on = rd.GetLightingGridValue(xIndex, zIndex);
+                    var index = zIndex * rd.width + xIndex;
+                    room.SetLight(index, on ? rd.lightIntensity : 0.0f);
+                }       
             }
         }
         /// <summary>

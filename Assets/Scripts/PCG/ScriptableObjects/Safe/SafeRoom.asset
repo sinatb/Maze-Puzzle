@@ -30,4 +30,6 @@ MonoBehaviour:
     prefab: {fileID: 8313506609212508531, guid: 0ccb359d0ee6f004d8d8b9d982a3caec, type: 3}
     position: {x: 7, y: 0.5, z: 6.2}
     rotation: {x: 0, y: 0, z: 0}
-  blockType: {fileID: 11400000, guid: 8f4e2a06fcd9ee24796d7ffd4785f5ab, type: 2}
+  roomType: {fileID: 11400000, guid: 8f4e2a06fcd9ee24796d7ffd4785f5ab, type: 2}
+  lightGrid: 01010001
+  lightIntensity: 1
