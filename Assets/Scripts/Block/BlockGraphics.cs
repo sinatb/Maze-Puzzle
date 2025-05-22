@@ -46,6 +46,8 @@ namespace Block
         }
         public void OnIncreaseCount(int playerCount)
         {
+            if (!GetComponent<BlockController>().IsCorridor())
+                return;
             switch (playerCount)
             {
                 case 1:
