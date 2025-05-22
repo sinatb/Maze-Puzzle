@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7d4d55229668c54c9ce656beb9a14a1
+timeCreated: 1504890970
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101732
+  packageName: Low Poly Storage Pack
+  packageVersion: 1.1
+  assetPath: Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Red.mat
+  uploadId: 253919

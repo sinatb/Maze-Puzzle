@@ -1,80 +1,126 @@
-using System.Collections;
-using System.Collections.Generic;
+using Room;
 using UnityEngine;
 
-public class BlockController : MonoBehaviour
+namespace Block
 {
-    private int _playerCount = 0;
-    [SerializeField] private float _maxIntensity;
-    [SerializeField] private Light _light;
-    [SerializeField] private bool _isFogBlock;
-    [SerializeField] private bool _isFinishingBlock;
-    [SerializeField] private Material _ceillingMat;
-    [SerializeField] private Material _ceillingFogMat;
-    [SerializeField] private Material _floorMat;
-    [SerializeField] private GameObject _floorCeilling;
-    
-    #region Shader
-    private void setMatDark()
+    public enum Direction
     {
-        List<Material> materials = new List<Material>()
-                {
-                    _floorMat,
-                    _ceillingFogMat
-                };
-        _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);
+        Up,
+        Down,
+        Left,
+        Right
     }
-    private void setMatLight()
+    public class BlockController : MonoBehaviour
     {
-        List<Material> materials = new List<Material>() {
-                    _floorMat,
-                    _ceillingMat
-                };
-        _floorCeilling.GetComponent<Renderer>().SetMaterials(materials);
-    }
-    #endregion
-
-
-    private void Start()
-    {
-        if (!_isFogBlock)
+        private int                         _playerCount = 0;
+        private BlockGraphics               _blockGraphics;
+        private bool                        _visited;
+        private RoomController              _room;
+        
+        [SerializeField] private bool       isFogBlock;
+        [SerializeField] private bool       isFinishingBlock;
+        // Walls
+        [SerializeField] private GameObject topWall;
+        [SerializeField] private GameObject downWall;
+        [SerializeField] private GameObject leftWall;
+        [SerializeField] private GameObject rightWall;
+        // Doors
+        [SerializeField] private GameObject rightDoor;
+        [SerializeField] private GameObject leftDoor;
+        [SerializeField] private GameObject topDoor;
+        [SerializeField] private GameObject downDoor;
+        // Pillar
+        [SerializeField] private Pillar pillar;
+        private void Awake()
         {
-            setMatLight();
-            _light.intensity = _maxIntensity;        
+            _blockGraphics = GetComponent<BlockGraphics>();
+            _blockGraphics.Setup(isFogBlock);
         }
-        else
+        public void IncPlayerCount()
         {
-            setMatDark();
-            _light.intensity = 0.0f;
+            _playerCount++;
+            _blockGraphics.OnIncreaseCount(_playerCount);
+        }
+        public int GetPlayerCount()
+        {
+            return _playerCount;
+        }
+        public bool GetIsFog()
+        {
+            return isFogBlock;
+        }
+        public bool GetIsFinishing()
+        {
+            return isFinishingBlock;
+        }
+        public bool IsCorridor()
+        {
+            return _room == null;
+        }
+        // PCG Related Functions
+        public void ClearWall(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                    topWall.SetActive(false);
+                    break;
+                case Direction.Down:
+                    downWall.SetActive(false);
+                    break;
+                case Direction.Left:
+                    leftWall.SetActive(false);
+                    break;
+                case Direction.Right:
+                    rightWall.SetActive(false);
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void EnableDoor(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                   topWall.SetActive(false);
+                   topDoor.SetActive(true);
+                   break;
+                case Direction.Down:
+                    downWall.SetActive(false);
+                    downDoor.SetActive(true);
+                    break;
+                case Direction.Left:
+                    leftWall.SetActive(false);
+                    leftDoor.SetActive(true);
+                    break;
+                case Direction.Right:
+                    rightWall.SetActive(false);
+                    rightDoor.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+        public bool IsVisited()
+        {
+            return _visited;
+        }
+        public void SetVisited()
+        {
+            _visited = true;
+        }
+        public Pillar GetPillar()
+        {
+            return pillar;
+        }
+        /// <summary>
+        /// Only use in RoomController;
+        /// </summary>
+        /// <param name="room">New RoomController</param>
+        public void SetRoom(RoomController room)
+        {
+            _room = room;
         }
     }
-    public void IncPlayerCount()
-    {
-        _playerCount++;
-        if (_playerCount == 1)
-        {
-           _light.intensity /= 2;
-        }else if (_playerCount == 2)
-        {
-            _light.intensity /= 1.5f;
-        }else if ( _playerCount == 3)
-        {
-            setMatDark();
-            _light.intensity = 0.0f;
-        }
-
-    }
-    public int GetPlayerCount()
-    {
-        return _playerCount;
-    }
-    public bool GetIsFog()
-    {
-        return _isFogBlock;
-    }
-    public bool GetIsFinishing()
-    {
-        return _isFinishingBlock;
-    }
-    
 }

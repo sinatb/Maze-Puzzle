@@ -74,8 +74,8 @@ public class Door : MonoBehaviour, IInteractable
         {
             _isPuzzleSolved = true;
             _puzzleInstance.SetActive(false);
-            GameManager.Instance.PlayerState.UnpauseGame();
-            GameManager.Instance.PlayerState.PuzzleSolve();
+            GameManager.GetPlayerState().UnpauseGame();
+            GameManager.GetPlayerState().PuzzleSolve();
         }
         else if (_puzzleManager.CheckAnswer() == PuzzleStatus.Mistake)
         {
@@ -87,13 +87,13 @@ public class Door : MonoBehaviour, IInteractable
                 Destroy(_puzzleInstance);
             }
             _puzzleInstance.SetActive(false);
-            GameManager.Instance.PlayerState.UnpauseGame();
-            GameManager.Instance.PlayerState.PuzzleMistake();
+            GameManager.GetPlayerState().UnpauseGame();
+            GameManager.GetPlayerState().PuzzleMistake();
         }
         else
         {
             _puzzleInstance.SetActive(false);
-            GameManager.Instance.PlayerState.UnpauseGame();
+            GameManager.GetPlayerState().UnpauseGame();
         }
     }
 }

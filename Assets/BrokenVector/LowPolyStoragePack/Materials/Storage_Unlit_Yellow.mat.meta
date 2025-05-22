@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ba0a51ddd31b75443b518751ff4cb263
+timeCreated: 1506953209
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101732
+  packageName: Low Poly Storage Pack
+  packageVersion: 1.1
+  assetPath: Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Yellow.mat
+  uploadId: 253919

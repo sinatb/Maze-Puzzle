@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 5ac3edd53f963024ebc36254c7e55dee
+labels:
+- LowPoly
+- Low-Poly
+- Storage
+- Locker
+timeCreated: 1504885155
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101732
+  packageName: Low Poly Storage Pack
+  packageVersion: 1.1
+  assetPath: Assets/BrokenVector/LowPolyStoragePack/Prefabs/Locker.prefab
+  uploadId: 253919

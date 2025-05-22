@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbc9f01636d43288cca68fc2329ee71, type: 3}
+  m_Name: SafeRoom
+  m_EditorClassIdentifier: 
+  width: 2
+  height: 2
+  doorX: 0
+  doorZ: 0
+  doorDirection: 1
+  roomObjects:
+  - tag: Rack
+    prefab: {fileID: 6598739973808483247, guid: 9420b6fdcef843643b7a3b626b686b0c, type: 3}
+    position: {x: 6.8, y: 0.8, z: 0.7}
+    rotation: {x: 0, y: 0, z: 0}
+  - tag: Bed
+    prefab: {fileID: 3778375375208565098, guid: 101f2464c88d66148a9dc521d5479222, type: 3}
+    position: {x: 1.2, y: 1.5, z: 5.5}
+    rotation: {x: 0, y: 90, z: 0}
+  - tag: WorkBench
+    prefab: {fileID: 8313506609212508531, guid: 0ccb359d0ee6f004d8d8b9d982a3caec, type: 3}
+    position: {x: 7, y: 0.5, z: 6.2}
+    rotation: {x: 0, y: 0, z: 0}
+  roomType: {fileID: 11400000, guid: 8f4e2a06fcd9ee24796d7ffd4785f5ab, type: 2}
+  lightGrid: 01010001
+  lightIntensity: 1
