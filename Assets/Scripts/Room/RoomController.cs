@@ -8,11 +8,11 @@ namespace Room
     {
         private RoomType         _roomType;
         private List<GameObject> _roomObjects;
-
         public void Setup(RoomType type)
         {
             _roomType = type;
             _roomObjects = new List<GameObject>();
+            RoomManager.Instance.AddRoom(this);
         }
         public void AddBlock(GameObject block)
         {

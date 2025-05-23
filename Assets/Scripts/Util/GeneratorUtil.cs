@@ -171,6 +171,7 @@ namespace Util
         public void CreateDoor(int x, int z, Direction direction)
         {
             _roomGrid[z, x].EnableDoor(direction);
+            RegisterDoor(_roomGrid[z, x]);
             switch (direction)
             {
                 case Direction.Left : 
@@ -306,6 +307,22 @@ namespace Util
                 var right = GetNeighbour(b2, Direction.Right);
                 if (right != null)
                     right.GetPillar().DeactivateBool(Direction.Left);
+            }
+        }
+        /// <summary>
+        /// Registers the Door of current room in PuzzleManager
+        /// </summary>
+        /// <param name="bc">Block controller of block with door</param>
+        private void RegisterDoor(BlockController bc)
+        {
+            var doors = bc.transform.Find("Doors").transform;
+            for (var i=0; i< doors.childCount ; i++)
+            {
+                var door = doors.GetChild(i);
+                if (door.gameObject.activeSelf)
+                {
+                    PuzzleManager.Instance.RegisterDoor(door.GetChild(1).GetComponent<Door>());
+                }
             }
         }
     }

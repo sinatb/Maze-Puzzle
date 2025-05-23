@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using PCG;
@@ -28,18 +27,15 @@ public class GameManager : MonoBehaviour
     {
         return Instance.player.GetComponent<PlayerState>();
     }
-
     public static Vector3 GetPlayerCoordinates()
     {
         return Instance.player.transform.position;
     }
-
     private IEnumerator Start()
     {
         yield return new WaitUntil(()=> pool.isReady);
         generator.Generate();
     }
-
     public void AddCullable(Cullable c)
     {
         _cullables.Add(c);
