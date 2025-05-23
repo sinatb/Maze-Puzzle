@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Util;
@@ -7,6 +6,7 @@ public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance { private set; get; }
     private List<Door> _doors;
+    
     private void Awake()
     {
         _doors = new List<Door>();
