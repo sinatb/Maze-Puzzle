@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Interactables;
 using UnityEngine;
 using Util;
 

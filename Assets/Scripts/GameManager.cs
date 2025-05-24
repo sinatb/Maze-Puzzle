@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private List<Cullable> _cullables;
     
     [SerializeField] private Generator  generator;
-    [SerializeField] private GameObject player;
+    public GameObject Player{get; private set; }
     private void Awake()
     {
         _cullables = new List<Cullable>();
@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
     }
     public static PlayerState GetPlayerState()
     {
-        return Instance.player.GetComponent<PlayerState>();
+        return Instance.Player.GetComponent<PlayerState>();
     }
     public static Vector3 GetPlayerCoordinates()
     {
-        return Instance.player.transform.position;
+        return Instance.Player.transform.position;
     }
     private IEnumerator Start()
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         foreach(var cullable in _cullables)
         {
-            if (Vector3.Distance(cullable.transform.position, player.transform.position) > cullingDistance)
+            if (Vector3.Distance(cullable.transform.position, Player.transform.position) > cullingDistance)
                 cullable.Cull();
             else
                 cullable.UnCull();

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Block;
+using Interactables;
 using PCG;
 using PCG.RoomData;
 using Room;

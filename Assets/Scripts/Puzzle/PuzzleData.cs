@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class PuzzleData : ScriptableObject
+namespace Puzzle
 {
-    public int Chances;
+    public class PuzzleData : ScriptableObject
+    {
+        public int chances;
+    }
 }

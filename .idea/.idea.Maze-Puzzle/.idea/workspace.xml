@@ -5,8 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/FixedTryPuzzle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/FixedTryPuzzle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/InventoryPuzzle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/InventoryPuzzle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Code_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Code_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Hangman_sentences.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Hangman_sentences.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Hole.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Hole.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Logic_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Logic_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Logic_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Logic_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Triple.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Riddle_Triple.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Story_Riddle.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Puzzle/Story_Riddle.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle/Puzzle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/Puzzle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle/PuzzleData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/PuzzleData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PuzzleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PuzzleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/GeneratorUtil.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +134,7 @@
       <workItem from="1747720815292" duration="3466000" />
       <workItem from="1747735910606" duration="1722000" />
       <workItem from="1747894342675" duration="6561000" />
-      <workItem from="1747985925503" duration="3735000" />
+      <workItem from="1747985925503" duration="8568000" />
     </task>
     <servers />
   </component>
