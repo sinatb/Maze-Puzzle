@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _cullables = new List<Cullable>();
+        Player = GameObject.Find("Player");
         if (Instance == null){
             Instance = this;
         }
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(()=> pool.isReady);
         generator.Generate();
     }
+
+    #region Culling
     public void AddCullable(Cullable c)
     {
         _cullables.Add(c);
@@ -51,4 +54,5 @@ public class GameManager : MonoBehaviour
                 cullable.UnCull();
         }
     }
+    #endregion
 }

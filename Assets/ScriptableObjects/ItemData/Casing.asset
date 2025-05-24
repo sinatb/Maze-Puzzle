@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5922f09e9675375419c9114ed39424a9, type: 3}
   m_Name: Casing
   m_EditorClassIdentifier: 
-  Itemname: Flashlight Casing
-  Description: A casing that the lens and battery are placed inside for creating
-    the flashlight
+  itemName: Flashlight Body
+  description: The body of a broken flashlight. I can probably fix it with some tape
+    and power it with a battery.

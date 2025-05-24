@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5683f6f58a7166e40af3593f5e054e57, type: 3}
   m_Name: FlashLight
   m_EditorClassIdentifier: 
-  Items:
+  items:
   - {fileID: 11400000, guid: c4fdf13b099baab4281bbecff8b86a59, type: 2}
   - {fileID: 11400000, guid: f5c41058a1321174fa7510c691f92ea9, type: 2}
   - {fileID: 11400000, guid: 48e5f6222cccf284cbaa328f44937fa4, type: 2}
-  CreatedItem: {fileID: 11400000, guid: b81f532a2c883724cb9f73010b023fee, type: 2}
+  createdItem: {fileID: 11400000, guid: b81f532a2c883724cb9f73010b023fee, type: 2}

@@ -230,7 +230,6 @@ MonoBehaviour:
   pool: {fileID: 1563073737}
   cullingDistance: 30
   generator: {fileID: 246841864}
-  player: {fileID: 1300959565}
 --- !u!4 &906246268
 Transform:
   m_ObjectHideFlags: 0
@@ -314,6 +313,10 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 5158623141933983443, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5449673746735926735, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -358,6 +361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6423388831030611039, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
+      propertyPath: interactionMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8071459883230895448, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -371,11 +378,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
---- !u!1 &1300959565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6122893170750317714, guid: 566def29b913ca0468d0ec89ed9a936a, type: 3}
-  m_PrefabInstance: {fileID: 1300959564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563073736
 GameObject:
   m_ObjectHideFlags: 0

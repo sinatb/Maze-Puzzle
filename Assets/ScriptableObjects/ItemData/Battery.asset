@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5922f09e9675375419c9114ed39424a9, type: 3}
   m_Name: Battery
   m_EditorClassIdentifier: 
-  Itemname: Battery
-  Description: Battery used for crafting flashlight
+  itemName: Battery
+  description: I can use this to power electrical things.

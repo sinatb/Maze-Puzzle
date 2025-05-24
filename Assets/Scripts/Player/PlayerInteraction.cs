@@ -4,51 +4,49 @@ namespace Player
 {
     public class PlayerInteraction : MonoBehaviour
     {
-        [SerializeField] private Transform _interactionPoint;
-        [SerializeField] private float _interactionPointRadius = 1.0f;
-        [SerializeField] private LayerMask _interactionMask;
-        private PlayerUI _ui;
-        private bool _isWatchingCollider = false;
-        private RaycastHit _hit;
-        private PlayerState _state;
-        private readonly Collider[] _colliders = new Collider[3];
+        [SerializeField] private float interactionRange;
+        [SerializeField] private LayerMask interactionMask;
+        private PlayerUI              _ui;
+        private PlayerState           _state;
+        private GameObject            _camera;
+        private readonly RaycastHit[] _hits = new RaycastHit[5];
         private void Start()
         {
             _ui = GetComponent<PlayerUI>();
             _state = GetComponent<PlayerState>();
+            _camera = transform.Find("Main Camera").gameObject;
         }
-    
-        private void Update()
+        private void FixedUpdate()
         {
-            Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactionMask);   
-            if (_colliders[0] != null && _state.IsGameRunning && !_state.IsGamePaused)
+            
+            // Count of all Interactables the player is looking at
+            var count = Physics.RaycastNonAlloc(_camera.transform.position,
+                _camera.transform.forward,
+                _hits,
+                interactionRange,
+                interactionMask
+                );
+            
+            // Check if the object is within interaction distance
+            if (count > 0 && _hits[0].distance <= interactionRange)
             {
-                if (_isWatchingCollider) 
+                var interactable = _hits[0].transform.GetComponent<IInteractable>();
+                if (_state.IsGameRunning && !_state.IsGamePaused)
                 {
-                    _ui.SetText(_colliders[0].GetComponent<IInteractable>().InteractionName);
+                    _ui.SetText(interactable.InteractionName);
+                    if (Input.GetKeyUp(KeyCode.E))
+                    {
+                        interactable.Interact(this);
+                    }
                 }
                 else
                 {
                     _ui.ClearText();
                 }
-                if (Input.GetKeyUp(KeyCode.E) && _isWatchingCollider)
-                {
-                    _colliders[0].GetComponent<IInteractable>().Interact(this);
-                }
             }
-        }
-        private void FixedUpdate()
-        {
-            if (Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward),out _hit, _interactionMask))
+            else
             {
-                if (_colliders[0] != null && _hit.transform.gameObject == _colliders[0].gameObject && _hit.distance <= 2.0f)
-                {
-                    _isWatchingCollider = true;
-                }
-                else
-                {
-                    _isWatchingCollider = false;
-                }
+                _ui.ClearText();
             }
         }
     }

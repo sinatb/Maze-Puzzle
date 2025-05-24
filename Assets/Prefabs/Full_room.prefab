@@ -1453,6 +1453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_DoorSnapper
       objectReference: {fileID: 0}
+    - target: {fileID: 3534111017405210567, guid: 16d3b976106d561488ee6fef0113cc77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
