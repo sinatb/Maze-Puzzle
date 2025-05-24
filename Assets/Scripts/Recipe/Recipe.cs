@@ -1,10 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Recipe", menuName ="Inventory/Recipe")]
-public class Recipe : ScriptableObject
+namespace Recipe
 {
-    public List<InventoryItemData> Items;
-    public InventoryItemData CreatedItem;
+    [CreateAssetMenu(fileName = "Recipe", menuName ="Inventory/Recipe")]
+    public class Recipe : ScriptableObject
+    {
+        public List<InventoryItemData> items; 
+        public InventoryItemData createdItem;
+    }
 }

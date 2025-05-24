@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="NewInventoryItemData", menuName = "Inventory/Item Data")]
-public class InventoryItemData : ScriptableObject
+namespace Items
 {
-    public string Itemname;
-    public string Description;
+    [CreateAssetMenu(fileName ="NewInventoryItemData", menuName = "Inventory/Item Data")]
+    public class InventoryItemData : ScriptableObject
+    {
+        public string itemName;
+        public string description;
+    }
 }

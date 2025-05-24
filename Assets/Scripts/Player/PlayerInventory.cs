@@ -1,73 +1,46 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Items;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private List<InventoryItemData> _inventoryItems = new List<InventoryItemData>();
+    public class PlayerInventory : MonoBehaviour
+    {
+        private Dictionary<InventoryItemData, int> _inventoryItems = new Dictionary<InventoryItemData, int>();
 
-    public void AddInventoryItem(InventoryItemData i)
-    {
-        _inventoryItems.Add(i);
-    }
-    public void RemoveInventoryItem(InventoryItemData item)
-    {
-        foreach (var it in _inventoryItems)
+        public void AddInventoryItem(InventoryItemData i)
         {
-            if (item.Itemname == it.Itemname)
+            _inventoryItems[i]++;
+        }
+        public void RemoveInventoryItem(InventoryItemData item)
+        {
+            if (_inventoryItems.Any(it => item.itemName == it.Key.itemName))
             {
                 _inventoryItems.Remove(item);
-                break;
             }
         }
-    }
-    public bool HasItem(string itemname)
-    {
-        foreach (var item in _inventoryItems)
+        public bool HasItem(string itemName)
         {
-            if (itemname == item.Itemname)
-            {
-                return true;
-            }
+            return _inventoryItems.Any(item => itemName == item.Key.itemName);
         }
-        return false;
-    }
-    public bool HasItem(InventoryItemData item)
-    {
-        foreach (var it in _inventoryItems)
+        public bool HasItem(InventoryItemData item)
         {
-            if (item.Itemname == it.Itemname)
-            {
-                return true;
-            }
+            return _inventoryItems.Any(it => item.itemName == it.Key.itemName);
         }
-        return false;
-    }
-    private bool CheckDependency(Recipe r)
-    {
-        int ctr = 0;
-        foreach (var item in r.Items)
+        private bool CheckDependency(Recipe.Recipe r)
         {
-            if (HasItem(item))
-            {
-                ctr++;
-            }
+            var ctr = r.items.Count(HasItem);
+            return ctr == r.items.Count;
         }
-        return ctr == r.Items.Count;
-    }
-    public bool Craft(Recipe r)
-    {
-        if (CheckDependency(r))
+        public bool Craft(Recipe.Recipe r)
         {
-            foreach (var item in r.Items)
+            if (!CheckDependency(r)) return false;
+            foreach (var item in r.items.Where(HasItem))
             {
-                if (HasItem(item))
-                {
-                    RemoveInventoryItem(item);
-                }
+                RemoveInventoryItem(item);
             }
             return true;
         }
-        return false;
     }
 }

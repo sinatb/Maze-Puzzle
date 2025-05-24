@@ -1,22 +1,25 @@
-using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class CraftingTable : MonoBehaviour, IInteractable
+namespace Interactables
 {
-    public List<Recipe> recipe = new List<Recipe>();
-    public string InteractionName => "Press E to Craft Flashlight";
-
-    public void Interact(PlayerInteraction pi)
+    public class CraftingTable : MonoBehaviour, IInteractable
     {
-        if (pi.GetComponent<PlayerInventory>().Craft(recipe[0]))
+        public List<Recipe.Recipe> recipe = new List<Recipe.Recipe>();
+        public string InteractionName => "Press E to Craft Flashlight";
+
+        public void Interact(PlayerInteraction pi)
         {
-            pi.GetComponent<PlayerInventory>().AddInventoryItem(recipe[0].CreatedItem);
-            pi.GetComponent<PlayerController>().ActivateFlashlight();
-        }
-        else
-        {
-            pi.GetComponent<PlayerUI>().DisplayAlert("Can't Create Item missing recipe items");
+            if (pi.GetComponent<PlayerInventory>().Craft(recipe[0]))
+            {
+                pi.GetComponent<PlayerInventory>().AddInventoryItem(recipe[0].createdItem);
+                pi.GetComponent<PlayerController>().ActivateFlashlight();
+            }
+            else
+            {
+                pi.GetComponent<PlayerUI>().DisplayAlert("Can't Create Item missing recipe items");
+            }
         }
     }
 }

@@ -1,3 +1,6 @@
+using Items;
+using Player;
+
 namespace Puzzle
 {
     public abstract class InventoryPuzzle : Puzzle

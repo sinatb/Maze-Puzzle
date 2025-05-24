@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class InventoryItem : MonoBehaviour, IInteractable
+namespace Items
 {
-    public InventoryItemData data;
-    public string InteractionName => "Press E to Pick Up " + data.Itemname;
-
-    public void Interact(PlayerInteraction pi)
+    public class InventoryItem : MonoBehaviour, IInteractable
     {
-        pi.GetComponent<PlayerInventory>().AddInventoryItem(data);
-        gameObject.SetActive(false);
+        public InventoryItemData data;
+        public string InteractionName => "Press E to Pick Up " + data.itemName;
+
+        public void Interact(PlayerInteraction pi)
+        {
+            pi.GetComponent<PlayerInventory>().AddInventoryItem(data);
+            gameObject.SetActive(false);
+        }
     }
 }

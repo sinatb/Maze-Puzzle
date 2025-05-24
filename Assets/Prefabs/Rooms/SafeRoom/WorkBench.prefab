@@ -858,6 +858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012249986033874555}
   - component: {fileID: -4259820831133339074}
+  - component: {fileID: 5933162454919306889}
   m_Layer: 0
   m_Name: WorkBench
   m_TagString: Untagged
@@ -895,3 +896,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a988980c278f84482498f383c93ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5933162454919306889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313506609212508531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f6a239ffe0e20449dc87f7bb68a49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipe:
+  - {fileID: 11400000, guid: 8069de439d393cc4ea5a3416077ed147, type: 2}
