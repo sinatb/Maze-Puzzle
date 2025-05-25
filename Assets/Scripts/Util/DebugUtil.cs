@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Items;
+using Player;
 using TMPro;
 using UnityEngine;
 
@@ -9,12 +12,9 @@ namespace Util
     {
         public bool showDebugData;
         public static DebugUtil Instance { get; private set;}
-
         [SerializeField] private int objectCount;
-        
+        [SerializeField] private InventoryItemData itemToAdd;
         private List<GameObject> _debugObjects;
-
-        
         public void Awake()
         {
             if (Instance != null && Instance != this)
@@ -24,7 +24,6 @@ namespace Util
             }
             Instance = this;
         }
-        
         private void Start()
         {
             _debugObjects = new List<GameObject>(objectCount);
@@ -38,7 +37,6 @@ namespace Util
                 _debugObjects.Add(go);
             }
         }
-
         private GameObject GetDebugObject()
         {
             return _debugObjects.FirstOrDefault(go => go.activeSelf == false);
@@ -57,6 +55,13 @@ namespace Util
             tmp.color = color;
             tmp.fontSize = size;
             go.SetActive(true);
+        }
+        public void AddItemToPlayer(InventoryItemData item, int count)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                GameManager.Instance.Player.GetComponent<PlayerInventory>().AddInventoryItem(item);
+            }
         }
     }
 }
