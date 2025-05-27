@@ -7,7 +7,7 @@ namespace Interactables
     public class CraftingTable : MonoBehaviour, IInteractable
     {
         public List<Recipe.Recipe> recipe = new List<Recipe.Recipe>();
-        public string InteractionName => "Press E to Craft Flashlight";
+        public string InteractionName => "Press E to Craft";
 
         public void Interact(PlayerInteraction pi)
         {

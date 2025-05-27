@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(()=> pool.isReady);
         generator.Generate();
+        yield return new WaitForSeconds(2.0f);
+        PuzzleManager.Instance.SetPuzzles();
     }
 
     #region Culling

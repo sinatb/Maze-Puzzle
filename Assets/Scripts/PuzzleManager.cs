@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using Interactables;
+using NUnit.Framework;
 using UnityEngine;
 using Util;
 
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance { private set; get; }
+    [SerializeField] private int numPuzzles;
+    [SerializeField] private List<GameObject> puzzlePrefabs;
     private List<Door> _doors;
     
     private void Awake()
@@ -29,8 +32,11 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetPuzzles()
     {
-
+        foreach (var d in _doors)
+        {
+            d.AddPuzzle(puzzlePrefabs[0]);
+        }
     }
 }

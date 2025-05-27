@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06967e3f-8d24-4d97-930d-49147bb181e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/Lockpickpuzzle/LockPickPuzzle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze-Puzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Full_room.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rooms/SafeRoom/WorkBench.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rooms/SafeRoom/WorkBench.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PCG.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Battery.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Battery.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Casing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Casing.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/FlashLight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/FlashLight.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Tape.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ItemData/Tape.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipe/FlashLight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipe/FlashLight.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/CraftingTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/CraftingTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/Door.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle/Puzzle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle/Puzzle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle/PuzzleData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle/PuzzleData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PuzzleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PuzzleManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +124,9 @@
       <workItem from="1747894342675" duration="6561000" />
       <workItem from="1747985925503" duration="8568000" />
       <workItem from="1748061249266" duration="5770000" />
-      <workItem from="1748070883940" duration="3766000" />
+      <workItem from="1748070883940" duration="14790000" />
+      <workItem from="1748145864788" duration="13315000" />
+      <workItem from="1748326188796" duration="2031000" />
     </task>
     <servers />
   </component>
@@ -142,13 +149,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Util/DebugUtil.cs</url>
-          <line>59</line>
+          <line>57</line>
           <properties documentPath="D:\works\gameDev\projects\Maze-Puzzle\Assets\Scripts\Util\DebugUtil.cs" containingFunctionPresentation="Method 'DrawDebugText'">
             <startOffsets>
-              <option value="1717" />
+              <option value="1790" />
             </startOffsets>
             <endOffsets>
-              <option value="1718" />
+              <option value="1791" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

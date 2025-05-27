@@ -11,7 +11,7 @@ namespace Player
 
         public void AddInventoryItem(InventoryItemData i)
         {
-            _inventoryItems[i]++;
+            _inventoryItems.TryAdd(i, 1);
         }
         public void RemoveInventoryItem(InventoryItemData item)
         {

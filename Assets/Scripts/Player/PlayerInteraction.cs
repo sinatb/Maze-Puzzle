@@ -27,8 +27,7 @@ namespace Player
                 interactionMask
                 );
             
-            // Check if the object is within interaction distance
-            if (count > 0 && _hits[0].distance <= interactionRange)
+            if (count > 0)
             {
                 var interactable = _hits[0].transform.GetComponent<IInteractable>();
                 if (_state.IsGameRunning && !_state.IsGamePaused)

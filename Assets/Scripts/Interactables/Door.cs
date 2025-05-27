@@ -2,28 +2,23 @@ using NaughtyAttributes;
 using Player;
 using Puzzle;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interactables
 {
     public class Door : MonoBehaviour, IInteractable
     {
-        [SerializeField] private string _interactionName = "Press E to Open Door";
+        [SerializeField] private string interactionName = "Press E to Open Door";
         public AudioClip doorOpen;
         public AudioClip doorClose;
-        public string InteractionName => _interactionName;
-        private Animator _animator;
-        private bool _isOpen = false;
-        private AudioSource _audioSource;
-        [HideInInspector]
-        public bool HasPuzzle;
-        [ShowIf("HasPuzzle")]
-        [SerializeField] private PuzzleData _puzzleData;
-        [ShowIf("HasPuzzle")]
-        [SerializeField] private GameObject _puzzle;
-        private Puzzle.Puzzle _puzzleManager;
-        private bool _isPuzzleSolved;
-        private bool _isLocked;
-        private GameObject _puzzleInstance;
+        public string InteractionName => interactionName;
+        private Animator      _animator;
+        private bool          _isOpen = false;
+        private AudioSource   _audioSource;
+        private bool          _hasPuzzle;
+        private Puzzle.Puzzle _puzzle;
+        private bool          _isPuzzleSolved;
+        private bool          _isLocked;
         private void Start()
         {
             _animator = GetComponent<Animator>();  
@@ -36,14 +31,14 @@ namespace Interactables
                 _animator.Play("door_close", 0, 0.0f);
                 _audioSource.PlayOneShot(doorClose);
                 _isOpen = false;
-                _interactionName = "Press E to Open Door";
+                interactionName = "Press E to Open Door";
             }
             else
             {
                 _animator.Play("door_open", 0, 0.0f);
                 _audioSource.PlayOneShot(doorOpen);
                 _isOpen = true;
-                _interactionName = "Press E to Close Door";
+                interactionName = "Press E to Close Door";
             }
         }
         public void Interact(PlayerInteraction pi)
@@ -52,54 +47,38 @@ namespace Interactables
             {
                 return;
             }
-            if (!HasPuzzle || (HasPuzzle && _isPuzzleSolved))
+            if (!_hasPuzzle || (_isPuzzleSolved))
             {
                 ToggleDoor();
             }
             else
             {
-                pi.GetComponent<PlayerState>().PauseGame();
-                if (_puzzleInstance == null)
+                if (_puzzle.CanSolve())
                 {
-                    _puzzleInstance = Instantiate(_puzzle);
-                    _puzzleManager = _puzzleInstance.GetComponent<Puzzle.Puzzle>();
-                    _puzzleManager.SetCallback(OnPuzzleDone);
-                    _puzzleManager.Setup(_puzzleData);
-                }
-                else
-                {
-                    _puzzleInstance.SetActive(true);
+                    pi.GetComponent<PlayerState>().PauseGame();
+                    _puzzle.Setup(OnPuzzleDone);
                 }
             }
         }
-
         private void OnPuzzleDone()
         {
-            if (_puzzleManager.CheckAnswer() == PuzzleStatus.Solved)
+            if (_puzzle.CheckAnswer() == PuzzleStatus.Solved)
             {
                 _isPuzzleSolved = true;
-                _puzzleInstance.SetActive(false);
-                GameManager.GetPlayerState().UnpauseGame();
                 GameManager.GetPlayerState().PuzzleSolve();
             }
-            else if (_puzzleManager.CheckAnswer() == PuzzleStatus.Mistake)
+            else if (_puzzle.CheckAnswer() == PuzzleStatus.Mistake)
             {
-                var solvable = _puzzleManager.CanSolve();
-                if (!solvable)
-                {
-                    _isLocked = true;
-                    _interactionName = "The Door Is Locked";
-                    Destroy(_puzzleInstance);
-                }
-                _puzzleInstance.SetActive(false);
-                GameManager.GetPlayerState().UnpauseGame();
+                //@TODO: Solve limit for puzzle implementation 
                 GameManager.GetPlayerState().PuzzleMistake();
             }
-            else
-            {
-                _puzzleInstance.SetActive(false);
-                GameManager.GetPlayerState().UnpauseGame();
-            }
+            GameManager.GetPlayerState().UnpauseGame();
+        }
+
+        public void AddPuzzle(GameObject puzzlePrefab)
+        {
+            _hasPuzzle = true;
+            _puzzle = puzzlePrefab.GetComponent<Puzzle.Puzzle>();
         }
     }
 }

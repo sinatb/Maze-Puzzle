@@ -25,13 +25,12 @@ public class PlayerUI : MonoBehaviour
     {
         _state = GetComponent<PlayerState>();
     }
-
     private void Update()
     {
         _sanitySlider.value = (_state.GetSanity() / 2000.0f);
         _pointText.text = "Points : " + _state.GetScore().ToString();
     }
-    private IEnumerator alertDisplayDelay()
+    private IEnumerator AlertDisplayDelay()
     {
         yield return new WaitForSeconds(_alertDisplayTime);
         _isLocked = false;
@@ -47,12 +46,12 @@ public class PlayerUI : MonoBehaviour
     {
         SetText("");
     }
-    private void setScoreText()
+    private void SetScoreText()
     {
         int gs = GetComponent<PlayerState>().CalculateWinScore();
         _gameScoreText.text = "Your score is : " + gs;
     }
-    private void setRankText()
+    private void SetRankText()
     {
         string rankText = GetComponent<PlayerState>().CalculateRank();
         _rankText.text = "Rank : " + rankText;
@@ -62,7 +61,7 @@ public class PlayerUI : MonoBehaviour
         _actionText.color = _alertColor;
         SetText(alert);
         _isLocked = true;
-        StartCoroutine(alertDisplayDelay());
+        StartCoroutine(AlertDisplayDelay());
     }
     public void Pause()
     {
@@ -91,7 +90,7 @@ public class PlayerUI : MonoBehaviour
         _isLocked = true;
         _sanityUI.SetActive(false);
         _gameWinUI.SetActive(true);
-        setScoreText();
-        setRankText();
+        SetScoreText();
+        SetRankText();
     }
 }
