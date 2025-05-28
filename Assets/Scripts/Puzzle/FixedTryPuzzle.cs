@@ -1,13 +1,20 @@
+using UnityEngine;
+
 namespace Puzzle
 {
     public abstract class FixedTryPuzzle : Puzzle
     {
-        public int chances;
+        [SerializeField] private int maxTries;
+        private int _tries = 0;
         public override bool CanSolve()
         {
-            if (chances <= 0) return false;
-            chances -= 1;
-            return true;
+            if (_tries < maxTries)
+                return true;
+            return false;
+        }
+        public void IncrementTries()
+        {
+            _tries++;
         }
     }
 }
