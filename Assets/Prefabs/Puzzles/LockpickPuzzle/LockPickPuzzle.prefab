@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3472718469948021885
 Transform:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1813608237443083757
 Transform:
   m_ObjectHideFlags: 0
@@ -998,6 +998,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleCam: {fileID: 3158981554568658828}
+  puzzleVisuals:
+  - {fileID: 1294787176418566335}
+  - {fileID: 2502035980298486699}
   requiredItem: {fileID: 11400000, guid: 49d2370292c11c44780fca7bd1fa2945, type: 2}
   finalAngle: 90
   rotationRate: 60

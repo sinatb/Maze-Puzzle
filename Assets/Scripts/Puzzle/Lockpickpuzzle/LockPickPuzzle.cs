@@ -7,7 +7,7 @@ namespace Puzzle.Lockpickpuzzle
         private float   _sweetSpot;
         private float   _acceptanceRange;
         private float   _errorMargin;
-        [SerializeField] private float   _lockPickHealth;
+        private float   _lockPickHealth;
         private bool    _solvedCorrect;
         [SerializeField] private float      finalAngle;
         [SerializeField] private float      rotationRate;
@@ -22,9 +22,8 @@ namespace Puzzle.Lockpickpuzzle
             _solvedCorrect = false;
             _lockPickHealth = 100.0f;
         }
-        public override PuzzleStatus CheckAnswer()
+        protected override PuzzleStatus CheckAnswerLogic()
         {
-            Clean();
             return _solvedCorrect ? PuzzleStatus.Solved : PuzzleStatus.Unsolved;
         }
 
@@ -70,11 +69,11 @@ namespace Puzzle.Lockpickpuzzle
                             0,
                             -rotationRate * Time.deltaTime);
                     }
-                    _lockPickHealth -= 15.0f * Time.deltaTime;
+                    _lockPickHealth -= 25.0f * Time.deltaTime;
                 }
                 else
                 {
-                    _lockPickHealth -= 10.0f * Time.deltaTime;
+                    _lockPickHealth -= 20.0f * Time.deltaTime;
                 }
             }
             else

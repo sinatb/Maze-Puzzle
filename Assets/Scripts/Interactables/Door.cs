@@ -17,6 +17,7 @@ namespace Interactables
         private AudioSource   _audioSource;
         private bool          _hasPuzzle;
         private Puzzle.Puzzle _puzzle;
+        private GameObject    _puzzleInstance;
         private bool          _isPuzzleSolved;
         private bool          _isLocked;
         private void Start()
@@ -56,7 +57,7 @@ namespace Interactables
                 if (_puzzle.CanSolve())
                 {
                     pi.GetComponent<PlayerState>().PauseGame();
-                    _puzzle.Setup(OnPuzzleDone);
+                    _puzzle.Setup();
                 }
             }
         }
@@ -78,7 +79,10 @@ namespace Interactables
         public void AddPuzzle(GameObject puzzlePrefab)
         {
             _hasPuzzle = true;
-            _puzzle = puzzlePrefab.GetComponent<Puzzle.Puzzle>();
+            _puzzleInstance = Instantiate(puzzlePrefab);
+            _puzzleInstance.transform.position = new Vector3(-200, 0, 0);
+            _puzzle = _puzzleInstance.GetComponent<Puzzle.Puzzle>();
+            _puzzle.SetCallback(OnPuzzleDone);
         }
     }
 }
