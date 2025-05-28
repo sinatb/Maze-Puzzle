@@ -17,7 +17,14 @@ namespace Player
         {
             if (_inventoryItems.Any(it => item.itemName == it.Key.itemName))
             {
-                _inventoryItems.Remove(item);
+                if (_inventoryItems[item] > 1)
+                {
+                    _inventoryItems[item]--;
+                }
+                else
+                {
+                    _inventoryItems.Remove(item);
+                }
             }
         }
         public bool HasItem(string itemName)
